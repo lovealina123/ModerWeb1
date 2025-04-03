@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ru-ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="pagesRU_main.css">
+    <script src="https://kit.fontawesome.com/c88a483c56.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="scrip.js">
+    <script src="script.js"></script>
+    <title>ModerWeb</title>
+</head>
+<body>
+
+
+    <header>
+        <a class="logo_a" href="page1.html"><span class="logo">Moder<strong class="cl">Web</strong></span></a>
+        <input style="width: 505px;" placeholder="Что выберите сегодня?" type="text" id="search_input_main" class="main_input"> <i class="fa-solid fa-magnifying-glass search"></i>
+    </header>
+ <hr class="hr_block">
+
+    <div class="detailed_navigation">
+        <li><a href="pageSM.html">Аккаунта</a></li>
+        <li><a href="pagePI.html">Платёжные параметры</a></li>
+        <li><a class="detailed_active" href="#">Дополнительные данные</a></li>
+    </div>
+<hr style="margin-top: 20px;" class="hr_block">
+
+<section class="detailed_registration_payments">
+    <div style="height: 900px;" class="detailed">
+        <h1 style="top: -15px; left: 20px; width: 519px; font-size: 16px; font-weight: 600; opacity: 0.8;">Вы покупатель? <a href="#">Перейдите для продолжения покупки</a></h1>
+
+        <hr style="top: -5px; width: 850px; left: -30px;" class="hr_detailed">
+
+        <div class="payments_block">
+            <label style="top: 28px;" for="name">ИМЯ</label>
+            <input type="text" id="name" name="name" required minlength="2" maxlength="50" pattern="[A-Za-zА-Яа-яЁё\s\-]+" placeholder="Введите ваше имя">
+            <i id="name-cross" style="display: none; color: red; top: 313px;"  class="fa-solid fa-xmark"></i>
+            <i id="name-check" class="fa-solid fa-check" style="top: 313px; display: none; color: #00b460"></i>
+
+            <label style="top: 78px;" for="email">ФАМИЛИЯ</label>
+            <input type="text" id="fame" name="fame" required placeholder="Введите вашу фамилию" autocomplete="fame">
+            <i id="fame-cross" style="top: 380px; display: none; color: red;" class="fa-solid fa-xmark"></i>
+            <i id="fame-check" class="fa-solid fa-check" style="top: 380px; display: none; color: #00b460"></i>     
+
+            <label style="top: 125px;" for="firstfame">ОТЧЕСТВО</label>
+            <input type="text" id="firstfame" name="firstfame" required placeholder="Введите ваше отчество" autocomplete="firstfame">
+            <i id="firstfame-cross" style="top: 447px; display: none; color: red;" class="fa-solid fa-xmark"></i>
+            <i id="firstfame-check" class="fa-solid fa-check" style="top: 447px; display: none; color: #00b460"></i>             
+        </div>
+        
+        <hr style="top: 25px; width: 850px; left: -30px;" class="hr_detailed">
+
+        <div class="new_password_detailed">
+            <label style="font-size: 18px; width: 260px;" for="password">Установить новый пароль:</label>
+        
+            <!-- Новый пароль -->
+            <label style="top: 105px;" for="new_password">Новый пароль:</label>
+            <input style="padding: 8px 40px 8px 12px; position: relative; top: 80px;" type="password" id="newpassword" name="newpassword" required minlength="8" maxlength="50" placeholder="Новый пароль">
+            <p id="newpassword-error" style="top: 50px; display: none; color: red; opacity: 0;">*Пароль должен быть не менее 8 символов</p>
+
+            <i id="toggle-password" class="fa-solid fa-eye" style="position: absolute; top: 637px; right: 570px; cursor: pointer; opacity: 0.7;"></i>
+        
+            <!-- Повторение пароля -->
+            <label style="position: absolute; top: 705px; left: 560px;" for="new_password_repeat">Повторите новый пароль:</label>
+            <input style="padding: 8px 40px 8px 12px; position: relative; top: 80px;" type="password" id="newpasswordrepeat" name="newpasswordrepeat" required minlength="8" maxlength="50" placeholder="Повторите пароль">
+            <p id="newpasswordrepeat-error" style="width: 300px; top: 190px; display: block; color: red; left: 365px; opacity: 0;">*Пароль должен быть одинаковым</p>
+
+            <i id="toggle-password-repeat" class="fa-solid fa-eye" style="position: absolute;  top: 704px; right: 570px; cursor: pointer; opacity: 0.7;"></i>
+        </div>
+
+
+      <script>
+        // Функция для переключения видимости пароля
+function togglePasswordVisibility(inputId, iconId) {
+    const passwordInput = document.getElementById(inputId);
+    const passwordIcon = document.getElementById(iconId);
+
+    if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        passwordIcon.classList.remove('fa-eye');
+        passwordIcon.classList.add('fa-eye-slash');
+    } else {
+        passwordInput.type = 'password';
+        passwordIcon.classList.remove('fa-eye-slash');
+        passwordIcon.classList.add('fa-eye');
+    }
+}
+
+// Добавляем слушатели на иконки для пароля и повторного пароля
+document.getElementById('toggle-password').addEventListener('click', function() {
+    togglePasswordVisibility('newpassword', 'toggle-password');
+});
+
+document.getElementById('toggle-password-repeat').addEventListener('click', function() {
+    togglePasswordVisibility('newpasswordrepeat', 'toggle-password-repeat');
+});
+
+// Функция для валидации пароля
+function validatePassword(passwordInput, repeatPasswordInput, errorMessage, crossIcon, checkIcon) {
+    const password = passwordInput.value.trim();
+
+    // Если пароль длиной >= 8 символов
+    if (password.length >= 8) {
+        errorMessage.style.display = 'none';  // Скрываем сообщение об ошибке
+        passwordInput.style.borderColor = 'green';
+        passwordInput.style.outline = '1px solid green'; // Зеленая рамка
+        checkIcon.style.display = 'inline'; // Показываем галочку
+        crossIcon.style.display = 'none'; // Скрываем крестик
+    } else {
+        errorMessage.style.display = 'inline'; // Показываем ошибку
+        passwordInput.style.borderColor = 'red'; // Красная рамка
+        passwordInput.style.outline = '1px solid red'; // Красный фокус
+        checkIcon.style.display = 'none'; // Скрываем галочку
+        crossIcon.style.display = 'inline'; // Показываем крестик
+    }
+
+    // Проверка на совпадение паролей
+    if (repeatPasswordInput && repeatPasswordInput.value !== password) {
+        errorMessage.style.display = 'inline'; // Показываем ошибку при несоответствии
+        repeatPasswordInput.style.borderColor = 'red';
+        repeatPasswordInput.style.outline = '1px solid red';
+        crossIcon.style.display = 'inline';
+        checkIcon.style.display = 'none';
+    } else if (repeatPasswordInput && repeatPasswordInput.value === password) {
+        // Если пароли совпали, показываем зеленый цвет
+        repeatPasswordInput.classList.add('green');
+        repeatPasswordInput.classList.remove('red');
+        repeatPasswordInput.style.outline = '1px solid green';
+        checkIcon.style.display = 'inline';
+        crossIcon.style.display = 'none';
+    }
+}
+
+// Обработчики для пароля
+const newPasswordInput = document.getElementById('newpassword');
+const newPasswordError = document.getElementById('newpassword-error');
+
+// Обработчик для повторного пароля
+const newPasswordRepeatInput = document.getElementById('newpasswordrepeat');
+const newPasswordRepeatError = document.getElementById('newpasswordrepeat-error');
+const newPasswordRepeatCheck = document.getElementById('newpasswordrepeat-check');
+const newPasswordRepeatCross = document.getElementById('newpasswordrepeat-cross');
+
+// Валидация пароля
+newPasswordInput.addEventListener('input', function() {
+    validatePassword(newPasswordInput, newPasswordRepeatInput, newPasswordError, newPasswordRepeatCross, newPasswordRepeatCheck);
+});
+
+// Валидация повторного пароля
+newPasswordRepeatInput.addEventListener('input', function() {
+    validatePassword(newPasswordInput, newPasswordRepeatInput, newPasswordRepeatError, newPasswordRepeatCross, newPasswordRepeatCheck);
+});
+
+// Сброс фокуса и стилей, когда пользователь убирает фокус
+newPasswordInput.addEventListener('blur', function() {
+    newPasswordInput.style.outline = 'none';
+    if (newPasswordInput.value.length < 8) {
+        newPasswordError.style.display = 'inline';
+    }
+});
+
+newPasswordRepeatInput.addEventListener('blur', function() {
+    newPasswordRepeatInput.style.outline = 'none';
+    if (newPasswordRepeatInput.value !== newPasswordInput.value) {
+        newPasswordRepeatError.style.display = 'inline';
+    }
+});
+      </script>
+
+      <hr class="hr_detailed" style="top: 110px; left: -30px; width: 850px;">
+      <section class="nofication_block">
+        <div style="position: relative; top: -10px;" class="nofication">
+            <span>УВЕДОМЛЕНИЯ</span>
+            <p>Некоторые уведомления, связанные с важными обновлениями о вашей активности на ModerWeb, не подлежат отключению.</p>
+        </div>
+
+        <div class="nofication">
+            <span>Тип</span>
+            <p>Входящие сообщения</p>
+            <p>Заказать сообщения</p>
+            <p>Обновления заказа</p>
+            <p>Напоминания о рейтинге</p>
+        </div>
+
+        <div class="nofication">
+            <span>Электронная почта</span>
+            <p><input type="checkbox"></p>
+            <p><input type="checkbox"></p>
+            <p><input type="checkbox"></p>
+            <p><input type="checkbox"></p>
+        </div>
+
+        <a href="pageProf.html"><button class="save_nofication">Сохранить изменения</button></a>
+        <hr class="nofication_hr">
+      </section>
+
+
+</body>
+</html>

@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="ru-ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="pagesRU_main.css">
+    <script src="https://kit.fontawesome.com/c88a483c56.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="scrip.js">
+    <script src="script.js"></script>
+    <title>ModerWeb</title>
+</head>
+<body style="height: 1080px;">
+
+    <header>
+        <a class="logo_a" href="pagepro.html"><span class="logo">Moder<strong class="cl">Pro</strong></span></a>
+        <input placeholder="Что выберите сегодня?" type="text" id="search_input_main" class="main_input"> <i class="fa-solid fa-magnifying-glass search"></i>
+        <nav>
+            <ul>
+                <li><a class="moderpro" href="#">Получить Expert</a></li>
+            <div class="gadget_main">
+                <li><a title="Увидомление" href="#"><i class="fa-regular fa-bell"></i></a></li>
+                <li><a title="Чат" href="#"><i class="fa-regular fa-comment"></i></a></li>
+                <li><a title="Понравившиесь" href="#"><i class="fa-regular fa-heart"></i></a></li>
+            </div>
+                <li><a style="opacity: 0.8;" href="#">Мои заказы</a></li>
+                <button  id="openWindow" style="border: none; background: #fff;"><li><a href="#"><i style="font-size: 28px; position: relative; top: -3px;" class="fa-solid fa-circle-user"></i></a></li></button>
+
+
+                <div id="customWindow" class="custom-window">
+                    <div class="custom-window-content">
+                      <span id="closeWindow" class="close-btn">&times;</span>
+                        <div class="li_modal">
+                            <a href="pageProf.html"><i class="fa-solid fa-user"></i> Профиль</a>
+                            <a href="#"><i class="fa-solid fa-magnifying-glass"></i> Поиск</a>
+                            <a href="#"><i class="fa-solid fa-wallet"></i> Кошелек</a>
+                            <a href="#"><i class="fa-solid fa-upload"></i> Опубликовать проекта</a>
+                            <hr class="modal_hr">
+                            <a href="#"><i class="fa-solid fa-message"></i> Помощь и поддержка</a>
+                            <a href="#"><i class="fa-solid fa-gift"></i> Реферальная система</a>
+                            <a href="#"><i class="fa-solid fa-briefcase"></i> Стать продавцом</a>
+                            <hr class="modal_hr">
+                            <a href="#"><i class="fa-solid fa-heart"></i> Избранное</a>
+                            <a href="#"><i class="fa-solid fa-language"></i> Язык</a>
+                            <a href="#"><i class="fa-solid fa-gear"></i> Настройки</a>
+                            <hr class="modal_hr">
+                            <a href="#"><i class="fa-solid fa-right-from-bracket"></i> Выйти</a>
+                        </div>
+                    </div>
+                  </div>
+
+                  <script>
+                                    const customWindow = document.getElementById("customWindow");
+                    const openWindow = document.getElementById("openWindow");
+                    const closeWindow = document.getElementById("closeWindow");
+
+                    openWindow.addEventListener("click", () => {
+                    customWindow.style.display = "flex"; // Показываем окно
+                    });
+
+                    closeWindow.addEventListener("click", () => {
+                    customWindow.style.display = "none"; // Закрываем окно
+                    });
+
+                    window.addEventListener("click", (e) => {
+                    if (e.target === customWindow) {
+                        customWindow.style.display = "none"; // Закрываем при клике вне окна
+                    }
+                    });
+
+                    // Добавляем обработчик события прокрутки
+                    window.addEventListener("scroll", () => {
+                    customWindow.style.display = "none"; // Скрываем окно при прокрутке
+});
+                  </script>
+
+            </ul>
+        </nav>
+    </header>
+ <hr class="hr_block">
+ <hr class="hr_massage_main">
+
+<div class="btn_left_position">
+    <div class="btn_left">
+        <a title="Профиль" style="margin-top: 20px;" href="#">
+            <i class="fa-solid fa-circle-user"></i>
+        </a>
+        <a title="Домой" style="margin-top: 60px;" href="#">
+            <i class="fa-solid fa-house"></i>
+        </a>
+        <a title="Поиск" href="#">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </a>
+        <a title="Избранное" href="#">
+            <i class="fa-solid fa-heart"></i>
+        </a>
+        <a title="Уведомления" href="#">
+            <i class="fa-solid fa-bell"></i>
+        </a>
+        <a title="Реклама" href="#">
+            <i class="fa-solid fa-chart-line"></i>
+        </a>
+        <a title="Опубликовать" href="#">
+            <i class="fa-solid fa-square-plus"></i>
+        </a>
+    </div>
+</div>  
+
+<div class="chat-tabs">
+    <button class="tab-button activeted" data-tab="all">Все чаты</button>
+    <button class="tab-button" data-tab="friends">Друзья</button>
+    <button class="tab-button" data-tab="clients">Клиенты</button>
+</div>
+
+<div class="chat-list">
+    <div class="chat-item" data-category="friends" data-chat-id="1">
+        <img src="img/Я.jpg" alt="">
+        <span>Данил</span>
+        <p>В сети 1 час назад</p>
+    </div>
+    <div class="chat-item" data-category="clients" data-chat-id="2">
+        <img src="img/Я.jpg" alt="">
+        <span>Клиент 1</span>
+        <p>В сети 2 часа назад</p>
+    </div>
+    <div class="chat-item" data-category="friends" data-chat-id="3">
+        <img src="img/Я.jpg" alt="">
+        <span>Друг 2</span>
+        <p>В сети 30 минут назад</p>
+    </div>
+    <div class="chat-item" data-category="clients" data-chat-id="4">
+        <img src="img/Я.jpg" alt="">
+        <span>Клиент 2</span>
+        <p>В сети 15 минут назад</p>
+    </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const chatList = document.querySelector(".chat-list");
+    const chatName = document.getElementById("chatName");
+    const chatUsername = document.getElementById("chatUsername");
+    const chatMessages = document.getElementById("chatMessages");
+    const messageInput = document.getElementById("messageInput");
+    const sendMessageButton = document.getElementById("sendMessage");
+
+    // Пример данных чатов
+    const chatsData = {
+        "1": {
+            name: "Данил",
+            username: "@moderpro",
+            messages: [
+                { text: "Привет!", timestamp: "10:00" },
+                { text: "Как дела?", timestamp: "10:05" }
+            ]
+        },
+        "2": {
+            name: "Клиент 1",
+            username: "@client1",
+            messages: [
+                { text: "Здравствуйте", timestamp: "12:00" },
+                { text: "Как мне помочь?", timestamp: "12:05" }
+            ]
+        },
+        "3": {
+            name: "Друг 2",
+            username: "@friend2",
+            messages: [
+                { text: "Эй, как ты?", timestamp: "14:00" },
+                { text: "Все нормально?", timestamp: "14:05" }
+            ]
+        },
+        "4": {
+            name: "Клиент 2",
+            username: "@client2",
+            messages: [
+                { text: "Добрый день!", timestamp: "15:00" },
+                { text: "Нужна помощь", timestamp: "15:10" }
+            ]
+        }
+    };
+
+    // Переменная для текущего активного чата
+    let currentChatId = "1"; // Изначально выбран чат с ID "1"
+
+    // Функция для отображения сообщений в чате
+    function loadChat(chatId) {
+        const chat = chatsData[chatId];
+        if (chat) {
+            // Обновляем заголовок чата и пользователя
+            chatName.textContent = chat.name;
+            chatUsername.textContent = chat.username;
+
+            // Загружаем сообщения чата
+            chatMessages.innerHTML = ""; // Очистить старые сообщения перед загрузкой новых
+
+            // Добавить все сообщения чата
+            chat.messages.forEach(function (msg) {
+                const messageDiv = document.createElement("div");
+                messageDiv.classList.add("message");
+                messageDiv.innerHTML = `<p>${msg.text} <span class="timestamp">${msg.timestamp}</span></p>`;
+                chatMessages.appendChild(messageDiv);
+            });
+
+            // Восстановить сохранённый текст для текущего чата
+            const savedMessage = localStorage.getItem(`messageInput_${chatId}`);
+            if (savedMessage !== null) {
+                messageInput.value = savedMessage;
+            } else {
+                messageInput.value = "";
+            }
+
+            // Обновляем текущий активный чат
+            currentChatId = chatId;
+        }
+    }
+
+    // Сохранение текста в локальное хранилище при каждом изменении
+    messageInput.addEventListener("input", function () {
+        if (currentChatId) {
+            // Сохраняем текст в localStorage
+            localStorage.setItem(`messageInput_${currentChatId}`, messageInput.value);
+        }
+    });
+
+    // Обработчик кликов по элементам чатов
+    chatList.addEventListener("click", function (e) {
+        const chatItem = e.target.closest(".chat-item");
+        if (chatItem) {
+            const chatId = chatItem.getAttribute("data-chat-id");
+            loadChat(chatId); // Загружаем новый чат
+        }
+    });
+
+    // Обработчик нажатия кнопки "Отправить"
+    sendMessageButton.addEventListener("click", function () {
+        if (currentChatId) {
+            const newMessage = messageInput.value;
+            if (newMessage.trim()) {
+                // Добавить сообщение в чат
+                const timestamp = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+                chatsData[currentChatId].messages.push({
+                    text: newMessage,
+                    timestamp: timestamp
+                });
+
+                // Сохраняем обновлённые сообщения в localStorage
+                localStorage.setItem(`messages_${currentChatId}`, JSON.stringify(chatsData[currentChatId].messages));
+
+                // Загружаем чат заново, чтобы отобразить новое сообщение
+                loadChat(currentChatId);
+
+                // Очистить поле ввода
+                messageInput.value = "";
+                // Удаляем текст из localStorage, так как он был отправлен
+                localStorage.removeItem(`messageInput_${currentChatId}`);
+            }
+        }
+    });
+
+    // Загружаем сообщения из localStorage при загрузке страницы
+    function loadMessagesFromLocalStorage() {
+        const savedMessages = localStorage.getItem(`messages_${currentChatId}`);
+        if (savedMessages) {
+            chatsData[currentChatId].messages = JSON.parse(savedMessages);
+        }
+    }
+
+    // Загружаем первый чат при старте
+    loadMessagesFromLocalStorage();
+    loadChat(currentChatId);
+});
+</script>
+
+<script>
+    document.querySelectorAll(".tab-button").forEach(button => {
+    button.addEventListener("click", () => {
+        document.querySelectorAll(".tab-button").forEach(btn => btn.classList.remove("activeted"));
+        button.classList.add("activeted");
+
+        let category = button.getAttribute("data-tab");
+        document.querySelectorAll(".chat-item").forEach(chat => {
+            if (category === "all" || chat.getAttribute("data-category") === category) {
+                chat.style.display = "block";
+            } else {
+                chat.style.display = "none";
+            }
+        });
+    });
+});
+
+</script>
+
+<div class="chat_box">
+    <div class="chat_box_top">
+        <img src="img/Я.jpg" alt="">
+        <h4 id="chatName" style="margin-left: 90px; border-right: 1px solid #ccc;">Данил</h4>
+        <h4 id="chatUsername" style="color: #777777;">@moderpro</h4>
+        <div class="chat_box_top_left">
+            <button><i class="fa-solid fa-flag"></i></button>
+            <button><i class="fa-solid fa-circle-info"></i></button>
+        </div>
+    </div>
+
+    <!-- Добавил ID -->
+    <div class="chat_messages" id="chatMessages"></div>
+
+    <div class="white_input_chat-box">
+        <input type="text" id="messageInput" placeholder="Сообщение">
+        <button style="left: 1660px;" id="sendMessage"><i class="fa-solid fa-arrow-up"></i></button>
+        <input type="file" id="fileInput" style="display: none;">
+        <button id="attachFile"><i class="fa-solid fa-image"></i></button>
+    </div>
+</div>
+
+<div id="imageModal" class="modal">
+    <span class="close">&times;</span>
+    <a id="downloadImage" download><i class="fa-solid fa-download"></i></a>
+    <img class="modal-content" id="fullImage">
+</div>
+
+<hr class="final_fjau">
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const chatMessages = document.getElementById("chatMessages");
+    const inputField = document.getElementById("messageInput");
+    const sendButton = document.getElementById("sendMessage");
+    const attachFileButton = document.getElementById("attachFile");
+    const fileInput = document.getElementById("fileInput");
+
+    function getTime() {
+        const now = new Date();
+        return now.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+    }
+
+    function sendMessage(text, imgSrc = null) {
+        if (!text.trim() && !imgSrc) return;
+
+        const messageDiv = document.createElement("div");
+        messageDiv.classList.add("message", "sent"); 
+
+        const textContainer = document.createElement("div");
+        textContainer.classList.add("text-container");
+
+        if (text) {
+            textContainer.innerHTML = `<p>${text}</p>`;
+        }
+
+        if (imgSrc) {
+            const imgWrapper = document.createElement("div");
+            imgWrapper.classList.add("img-wrapper");
+
+            const img = document.createElement("img");
+            img.src = imgSrc;
+            img.classList.add("message-img");
+            img.style.cursor = "pointer";
+
+            imgWrapper.appendChild(img);
+            textContainer.appendChild(imgWrapper);
+        }
+
+        const infoContainer = document.createElement("div");
+        infoContainer.classList.add("message-info");
+
+        const timestamp = document.createElement("span");
+        timestamp.classList.add("timestamp");
+        timestamp.innerHTML = getTime();
+
+        const checkmarks = document.createElement("i");
+        checkmarks.classList.add("fa-solid", "fa-check", "checkmarks");
+
+        // Создаем кнопку с тремя точками
+        const ellipsisButton = document.createElement("i");
+        ellipsisButton.classList.add("fa-solid", "fa-ellipsis-vertical", "ellipsis-button");
+
+        // Добавляем кнопку в messageDiv (чтобы она была поверх, а не внутри текста)
+        messageDiv.appendChild(ellipsisButton);
+
+        infoContainer.appendChild(timestamp);
+        infoContainer.appendChild(checkmarks);
+
+        messageDiv.appendChild(textContainer);
+        messageDiv.appendChild(infoContainer);
+
+        chatMessages.appendChild(messageDiv);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+        inputField.value = "";
+
+        setTimeout(() => {
+            checkmarks.classList.replace("fa-check", "fa-check-double");
+            checkmarks.classList.add("read");
+        }, 3000);
+
+        // Показываем кнопку при наведении на сообщение
+        messageDiv.addEventListener("mouseenter", function () {
+            ellipsisButton.style.opacity = "1";
+        });
+
+        messageDiv.addEventListener("mouseleave", function () {
+            ellipsisButton.style.opacity = "0";
+        });
+
+        // Пример обработчика для кнопки
+        ellipsisButton.addEventListener("click", function () {
+            alert("Открыть меню действий");
+        });
+    }
+
+    sendButton.addEventListener("click", function () {
+        sendMessage(inputField.value);
+    });
+
+    inputField.addEventListener("keypress", function (e) {
+        if (e.key === "Enter") {
+            sendMessage(inputField.value);
+        }
+    });
+
+    attachFileButton.addEventListener("click", function () {
+        fileInput.click();
+    });
+
+    fileInput.addEventListener("change", function (e) {
+        e.preventDefault();
+        const file = fileInput.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                sendMessage("", e.target.result);
+            };
+            reader.readAsDataURL(file);
+        }
+    });
+});
+    </script>
+
+</body>
+</html>

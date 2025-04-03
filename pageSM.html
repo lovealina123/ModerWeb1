@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="ru-ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="pagesRU_main.css">
+    <script src="https://kit.fontawesome.com/c88a483c56.js" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+    <title>ModerWeb</title>
+</head>
+<body>
+
+
+    <header>
+        <a class="logo_a" href="page1.html"><span class="logo">Moder<strong class="cl">Web</strong></span></a>
+        <input style="width: 505px;" placeholder="Что выберите сегодня?" type="text" id="search_input_main" class="main_input"> <i class="fa-solid fa-magnifying-glass search"></i>
+    </header>
+ <hr class="hr_block">
+
+    <div class="detailed_navigation">
+        <li><a class="detailed_active" href="#">Аккаунта</a></li>
+        <li><a href="pagePI.html">Платёжные параметры</a></li>
+        <li><a href="pageDop.html">Дополнительные данные</a></li>
+    </div>
+<hr style="margin-top: 20px;" class="hr_block">
+ 
+    <section class="detailed_registration">
+        <div class="detailed">
+            <h1>Расширенные настройки аккаунта и управления</h1>
+            <img style="left: 110px;" src="img/personality.svg" alt="">
+        
+        <hr class="hr_detailed">
+
+        <div class="input_detailed">
+            <span>Как называется ваша компания?</span>
+            <input type="text" name="" id="" placeholder="Добавьте компанию здесь">
+            <p>*Необязательный</p> 
+        </div>
+
+        <section class="input_checkbox_freelance_castegories">
+            <h2>В какой области вы работаете? Выберите подходящую категорию!</h2>
+            <a style="top: 535px;" href="#">Смотерть все  <i class="fa-solid fa-arrow-right"></i></a>
+            <div class="input_checkbox_freelance_castegories_inform">
+            <button>
+                <div class="input_checkbox_freelance_castegories_white">
+                    <label class="custom-checkbox">
+                        <img src="img/img.category/Графика.svg" alt="">
+                        <h4>Графический дизайн</h4>
+                        <p>Создаю стильные визуальные решения под любую задачу</p>
+                    </label>
+                </div>
+            </button>
+            </div>
+
+            <div class="input_checkbox_freelance_castegories_inform">
+                <button style="top: -21px;">
+                    <div class="input_checkbox_freelance_castegories_white">
+                        <label class="custom-checkbox">
+                            <img src="img/img.category/Видео.svg" alt="">
+                            <h4>Видео & анимация</h4>
+                            <p>Создаю динамичные видеоролики и анимацию под любую задачу</p>
+                        </label>
+                    </div>
+                </button>
+                </div>
+
+                <div class="input_checkbox_freelance_castegories_inform">
+                    <button style="top: 17px;">
+                        <div class="input_checkbox_freelance_castegories_white">
+                            <label class="custom-checkbox">
+                                <img src="img/img.category/Програмирование.svg" alt="">
+                                <h4>Кодинг & разроботка</h4>
+                                <p>Разрабатываю современные решения для кодинга и разработки под любую задачу</p>
+                            </label>
+                        </div>
+                    </button>
+                    </div>
+        </section>
+
+
+        <div style="position: relative; top: -25px;  margin-top: -50px;" class="input_detailed">
+            <span>Как бы вы описали свои услуги?</span>
+            <textarea style="height: 140px;" id="textInput" placeholder="Мы разрабатываем удобное мобильное приложение, которое помогает управлять заказами и клиентами. Наш дизайн ориентирован на минимализм и простоту, чтобы пользователи могли быстро находить нужные функции" name="" id=""></textarea>
+            <div id="counter">0 / 1500 символов</div>
+
+            <script>
+                const textInput = document.getElementById('textInput');
+                const counter = document.getElementById('counter');
+                
+                textInput.addEventListener('input', function() {
+                    const textLength = textInput.value.length;
+                    counter.textContent = `${textLength} / 1500 символов`;
+                    
+                    if (textLength > 1500) {
+                        counter.classList.add('exceeded');
+                    } else {
+                        counter.classList.remove('exceeded');
+                    }
+                });
+            </script>
+                <div class="input_price_block">
+                    <h1>Укажите сумму, на которую рассчитываете</h1>
+                    <div class="input_price">
+                        <div class="input_price_container">
+                            <span>От</span>
+                            <input type="text" placeholder="1000">
+                        </div>
+                        <div style="float: right;" class="input_price_container">
+                            <span>До</span>
+                            <input type="text" placeholder="10 000">
+                        </div>
+                    </div>
+                        
+                </div>
+
+
+        </div>
+
+        <section class="photo_detailed">
+            <div class="photo_block">
+
+                <div class="none_photo_preview">
+
+                </div>
+
+                  <!-- Контейнер для фото -->
+    <div id="previewContainer">
+        <img id="previewImage" src="" alt="Загруженное фото">
+    </div>
+                 <!-- Скрытый input file -->
+    <input type="file" id="fileInput" accept="image/*">
+
+    <!-- Кастомная кнопка -->
+    <label for="fileInput" class="custom-file-label">Выбрать фото</label>
+    <button style="top: -110px; left: 130px;"  id="deleteButton" class="delete-btn">Удалить</button>
+
+    <script>
+        const fileInput = document.getElementById('fileInput');
+        const fileNameDisplay = document.getElementById('fileName');
+        const previewContainer = document.getElementById('previewContainer');
+        const previewImage = document.getElementById('previewImage');
+        const deleteButton = document.getElementById('deleteButton');
+
+        fileInput.addEventListener('change', function(event) {
+            const file = event.target.files[0];
+
+            if (file) {
+                const reader = new FileReader();
+                
+                reader.onload = function(e) {
+                    previewImage.src = e.target.result;
+                    previewContainer.style.display = 'block'; // Показываем контейнер с фото
+                    deleteButton.classList.add('active'); // Делаем кнопку активной
+                    deleteButton.disabled = false; // Разблокируем кнопку
+                };
+
+                reader.readAsDataURL(file);
+                fileNameDisplay.textContent = `Выбран файл: ${file.name}`;
+            } else {
+                fileNameDisplay.textContent = 'Файл не выбран';
+                previewContainer.style.display = 'none';
+                deleteButton.classList.remove('active'); // Делаем кнопку серой
+                deleteButton.disabled = true;
+            }
+        });
+
+        // Обработчик кнопки удаления
+        deleteButton.addEventListener('click', function() {
+            previewImage.src = '';
+            previewContainer.style.display = 'none';
+            fileInput.value = ''; // Сброс input
+            fileNameDisplay.textContent = 'Файл не выбран';
+
+            // Деактивация кнопки
+            deleteButton.classList.remove('active');
+            deleteButton.disabled = true;
+        });
+    </script>
+    <span>Загрузите фото</span>
+            </div>
+        </section>  
+
+
+        <hr style="top: -5px;" class="hr_detailed">
+
+        <section class="level_castegories">
+            <h2>Укажите ваш уровень знаний:</h2>
+            <div class="input_checkbox_level_castegories_inform">
+                <button style="top: -5px;">
+                    <div class="input_checkbox_level_castegories_white">
+                        <label class="custom-checkbox_level">
+                            <img src="img/img.lvl/level1.svg" alt="">
+                            <h4>Я новичёк</h4>
+                            <p>Я новичок, только начинаю свой путь во фрилансе. Готов работать и развиваться.</p>
+                        </label>
+                    </div>
+                </button>
+                </div>
+
+            <div class="input_checkbox_level_castegories_inform">
+                <button style="top: -21px;">
+                    <div class="input_checkbox_level_castegories_white">
+                        <label class="custom-checkbox_level">
+                            <img src="img/img.lvl/level2.svg" alt="">
+                            <h4>Я опытный</h4>
+                            <p>Я опытный фрилансер с множеством успешно завершённых проектов.</p>
+                        </label>
+                    </div>
+                </button>
+                </div>
+
+                <div class="input_checkbox_level_castegories_inform">
+                    <button style="top: 13px;">
+                        <div class="input_checkbox_level_castegories_white">
+                            <label class="custom-checkbox_level">
+                                <img src="img/img.lvl/level3.svg" alt="">
+                                <h4>Я професионал</h4>
+                                <p>Я профессионал в своём деле с опытом работы над сложными и разнообразными проектами.</p>
+                            </label>
+                        </div>
+                    </button>
+                    </div>
+        </section>
+
+        <hr style="top: 20px;" class="hr_detailed">
+        <section class="checked_info">
+            <div class="checked_block">
+                <div class="checked_block_info">
+                    <span>Пожалуйста, проверьте всю информацию перед отправкой.
+                    Также не упустите возможность подключить <a href="#">ModerExpert</a> и получать дополнительные преимущества.
+                    Мы заботимся о вашей безопасности, поэтому обязательно ознакомьтесь с нашей <a href="#">Политикой конфиденциальности</a> и <a href="#">Условиями использования</a>.
+                    Если у вас возникнут вопросы, не стесняйтесь обращаться!</span>
+                </div>
+            </div>            
+        </section>
+        <hr style="top: 45px;" class="hr_detailed">
+        <section class="button_confirmation">
+            <button id="" class="confirmation">Сохранить данные</button>
+        </section>
+    </div>
+
+    </section>
+
+
+    <footer style="margin-top: 75px;" class="footer">
+    
+        <div style="position: relative; top: -36px;" class="for_clients_footer">
+            <h2>Для клиентов</h2>
+            <a href="#">Что такое ModerWeb</a>
+            <a href="#">Каталог проектов</a>
+            <a href="#">Опубликовать проект</a>
+            <a href="#">О ModerWeb</a>
+            <a href="#">Доверие и безопасность</a>
+            <a href="#">Как это работает</a>
+            <a href="#">Отзывы и рейтинги</a>
+            <a href="#">Цены и комиссии</a>
+            <a href="#">FAQ для клиентов</a>
+        </div>
+
+        <div style="margin-left: 100px; position: relative; top: -155px;" class="for_clients_footer">
+            <h2>Для фрилансеров</h2>
+            <a href="#">Станьте фрилансером</a>
+            <a href="#">Как найти работу</a>
+            <a href="#">Офлайн робота</a>
+            <a href="#">ModerPro</a>
+            <a href="#">Стартовый бонус</a>
+            <a href="#">FAQ для фрилансеров</a>
+        </div>
+
+        <div style="margin-left: 100px;" class="for_clients_footer">
+            <h2>Категории</h2>
+            <a href="page.categoris/grafik.html">Графика & дизайн</a>
+            <a href="#">Видео & анимация</a>
+            <a href="#">Написание & перевод</a>
+            <a href="#">Музыка & видео</a>
+            <a href="#">Кодинг & технологии</a>
+            <a href="#">Услуги ИИ</a>
+            <a href="#">Цифровой Маркетинг</a>
+            <a href="#">Инженерия & архитектура</a>
+            <a href="#">Бизнес</a>
+            <a href="#">Смотреть больше...</a>
+        </div>
+
+        <div style="float: right;" class="for_clients_footer">
+            <h2>Компания</h2>
+            <a href="#">О ModerWeb</a>
+            <a href="#">Карьера</a>
+            <a href="#">Пресса и новости</a>
+            <a href="#">Партнёрство</a>
+            <a href="#">Контакты</a>
+            <a href="#">Политика конфиденциальности</a>
+            <a href="#">Условия использования</a>
+            <a href="#">Юридическая информация</a>
+        </div>
+
+        <div style="float: right; margin-right: 100px;" class="for_clients_footer">
+            <h2>Ресурсы</h2>
+            <a href="#">Помощь и поддержка</a>
+            <a href="#">Реферальная программа</a>
+            <a href="#">Руководства</a>
+            <a href="#">Безопасность</a>
+            <a href="#">Обучающие материалы</a>
+            <a href="#">API и разработчикам</a>
+            <a href="#">Новости и обновления</a>
+        </div>
+
+                <hr class="hr_footer">
+                <h1>Moder<strong class="cl">Web</strong></h1>
+                    <div class="footer_down">
+                        <p>© ModerWeb Digital Ltd. 2025</p>
+                        <div class="social">
+                            <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+                            <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                            <a href="#"><i class="fa-brands fa-telegram"></i></a>
+                            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                        </div>
+                    </div>
+    </footer>
+
+ 
+</body>
+</html>

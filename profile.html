@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="ru-ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="pagesRU_main.css">
+    <script src="https://kit.fontawesome.com/c88a483c56.js" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+    <title>ModerWeb</title>
+</head>
+<body>
+
+    <header>
+        <a class="logo_a" href="pagepro.html"><span class="logo">Moder<strong class="cl">Pro</strong></span></a>
+        <input placeholder="Что выберите сегодня?" type="text" id="search_input_main" class="main_input"> <i class="fa-solid fa-magnifying-glass search"></i>
+        <nav>
+            <ul>
+                <li><a class="moderpro" href="#">Получить Expert</a></li>
+            <div class="gadget_main">
+                <li><a title="Увидомление" href="#"><i class="fa-regular fa-bell"></i></a></li>
+                <li><a title="Чат" href="pagemassage.html"><i class="fa-regular fa-comment"></i></a></li>
+                <li><a title="Понравившиесь" href="#"><i class="fa-regular fa-heart"></i></a></li>
+            </div>
+                <li><a style="opacity: 0.8;" href="#">Мои заказы</a></li>
+                <button  id="openWindow" style="border: none; background: #fff;"><li><a href="#"><i style="font-size: 28px; position: relative; top: -3px;" class="fa-solid fa-circle-user"></i></a></li></button>
+
+
+                <div id="customWindow" class="custom-window">
+                    <div class="custom-window-content">
+                      <span id="closeWindow" class="close-btn">&times;</span>
+                        <div class="li_modal">
+                            <a href="pageProf.html"><i class="fa-solid fa-user"></i> Профиль</a>
+                            <a href="#"><i class="fa-solid fa-magnifying-glass"></i> Поиск</a>
+                            <a href="#"><i class="fa-solid fa-wallet"></i> Кошелек</a>
+                            <a href="#"><i class="fa-solid fa-upload"></i> Опубликовать проекта</a>
+                            <hr class="modal_hr">
+                            <a href="#"><i class="fa-solid fa-message"></i> Помощь и поддержка</a>
+                            <a href="#"><i class="fa-solid fa-gift"></i> Реферальная система</a>
+                            <a href="#"><i class="fa-solid fa-briefcase"></i> Стать продавцом</a>
+                            <hr class="modal_hr">
+                            <a href="#"><i class="fa-solid fa-heart"></i> Избранное</a>
+                            <a href="#"><i class="fa-solid fa-language"></i> Язык</a>
+                            <a href="#"><i class="fa-solid fa-gear"></i> Настройки</a>
+                            <hr class="modal_hr">
+                            <a href="#"><i class="fa-solid fa-right-from-bracket"></i> Выйти</a>
+                        </div>
+                    </div>
+                  </div>
+
+                  <script>
+                                    const customWindow = document.getElementById("customWindow");
+                    const openWindow = document.getElementById("openWindow");
+                    const closeWindow = document.getElementById("closeWindow");
+
+                    openWindow.addEventListener("click", () => {
+                    customWindow.style.display = "flex"; // Показываем окно
+                    });
+
+                    closeWindow.addEventListener("click", () => {
+                    customWindow.style.display = "none"; // Закрываем окно
+                    });
+
+                    window.addEventListener("click", (e) => {
+                    if (e.target === customWindow) {
+                        customWindow.style.display = "none"; // Закрываем при клике вне окна
+                    }
+                    });
+
+                    // Добавляем обработчик события прокрутки
+                    window.addEventListener("scroll", () => {
+                    customWindow.style.display = "none"; // Скрываем окно при прокрутке
+});
+                  </script>
+
+            </ul>
+        </nav>
+    </header>
+ <hr class="hr_block">
+    
+    <section class="prof">
+        <div class="prof_block">
+            <img src="img/Я.jpg" alt="">
+            <h2>Виталий Ч.</h2>
+            <h2 style="color: #777777;">@modertop2107</h2>
+            <div class="two_block_prof">
+                <span style="font-weight: 500; border-right: 1px solid #ccc;"><i class="fa-solid fa-star"></i> 5.0</span>
+                <span style="border-radius: 10px; background-color: #857fa43d; padding: 6px;">Уровень: Expert</span>
+            </div>
+            <div class="geo_prof">
+                <span><i class="fa-solid fa-location-dot"></i> Украина</span>
+            </div>
+            <button onclick="showDialog()" class="btn_in"><img class="img_in" src="img/paper-airplane-symbol-svgrepo-com (1).svg" alt=""> <p style="position: relative; left: 15px;">Связаться со мной</p></button>
+            <button class="btn_heart"><i class="fa-regular fa-heart"></i></button>
+            <hr class="profile_pt2_hr">
+        </div>
+
+        <div id="dialog-box" class="dialog-overlay">
+            <div class="dialog-window">
+                <span class="dialog-close" onclick="hideDialog()">&times;</span>
+                <div class="dialog_top_block">
+                    <button><i class="fa-solid fa-ellipsis-vertical"></i></button>
+                    <img src="img/Logo.JPEG" alt="">
+                </div>
+                <div id="chat-box" class="dialog_main">
+                    <img src="img/Я.jpg" alt="">
+                    <h4>Данил</h4>
+                    <div id="messages">
+        
+                    </div> <!-- Здесь будут сообщения -->
+                    <div class="input_container">
+                        <input type="text" id="message" class="input_message" placeholder="Сообщение">
+                        <button onclick="sendMessage()"><i class="fa-solid fa-arrow-up"></i></button>
+                    </div>
+                </div>  
+            </div>
+        </div>
+
+        <script>
+            function sendMessage() {
+    let input = document.getElementById("message");
+    let chatBox = document.getElementById("messages");
+
+    if (input.value.trim() === "") return; // Проверка на пустую строку
+
+    let message = document.createElement("div");
+    message.classList.add("message");
+    message.textContent = input.value;
+
+    chatBox.appendChild(message);
+    chatBox.scrollTop = chatBox.scrollHeight; // Авто-прокрутка вниз
+
+    input.value = ""; // Очищаем поле после отправки
+}
+
+// Отправка сообщения при нажатии Enter
+document.getElementById("message").addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+        sendMessage();
+    }
+});
+        </script>
+
+
+        <script>
+            function showDialog() {
+                let dialog = document.getElementById("dialog-box");
+                dialog.style.display = "flex"; // Показываем модальное окно
+                setTimeout(() => dialog.classList.add("active"), 10); // Запускаем анимацию
+            }
+            
+            function hideDialog() {
+                let dialog = document.getElementById("dialog-box");
+                dialog.classList.remove("active"); // Убираем анимацию
+                setTimeout(() => dialog.style.display = "none", 400); // Скрываем после анимации
+            }
+            
+            // Закрытие при клике вне окна
+            window.onclick = function(event) {
+                let dialog = document.getElementById("dialog-box");
+                if (event.target === dialog) {
+                    hideDialog();
+                }
+            }
+            </script>
+
+        <div class="about_us_freelance_profile">
+            <span>Обо мне</span>
+            <p>Вы хотите создать высокопроизводительное и многофункциональное мобильное приложение? Не ищите дальше! Я специализируюсь на разработке потрясающих и функциональных приложений Flutter, интегрированных с Firebase, идеально подходящих для платформ Android и iOS.
+
+                Услуги, которые я предлагаю:
+               <p>Разработка приложений на заказ: Индивидуальные приложения в соответствии с вашими конкретными потребностями, обеспечивающие уникальный и удобный пользовательский опыт.</p> <p>Интеграция с Firebase: Бесшовная интеграция с Firebase для базы данных в режиме реального времени, аутентификации, облачного хранилища и push-уведомлений.
+                UI/UX дизайн: Красивый, интуитивно понятный и адаптивный дизайн, повышающий вовлеченность пользователей.</p>
+                <p> Аутентификация: Безопасная и эффективная аутентификация пользователей с помощью Firebase Auth (электронная почта/пароль, Google, Facebook и т. д.).
+                    База данных в режиме реального времени: Эффективная обработка данных с помощью Firebase Firestore для обновления в режиме реального времени.</p>
+                <p>Функции облака: Расширьте возможности своего приложения с помощью мощных облачных функций.
+                    Push-уведомления: Держите своих пользователей в курсе с помощью Firebase Cloud Messaging.
+                    Развёртывание: Помощь с развертыванием приложений в Google Play Store и Apple App Store.
+                    Давайте воплотим вашу идею приложения в реальность! Свяжитесь со мной сейчас, чтобы обсудить требования вашего проекта и приступить к созданию первоклассного приложения Flutter с помощью Firebase.</p></p>
+        </div>
+        <div style="margin-top: 50px;" class="about_us_freelance_profiles">
+            <span style="margin-bottom: 50px;">Навыки</span>
+                <p style="    width: 170px;">Разроботчик сайтов</p>
+                <p style="    width: 197px;">Дизайнер приложений</p>
+                <p>Эксперт по здоровому питанию и фитнесу</p>
+        </div>
+
+        <div class="pricing">
+            <div class="tabs">
+                <button style=" border-top-left-radius: 7px; border-right: none; border-left: none; border-top: none ;" class="tab" data-price="291.90" data-title="Базовый" data-text="Поставит мобильное приложение на 2-3 статичных экрана">Базовый</button>
+                <button style="border-top: none ;" class="tab" data-price="499.90" data-title="Стандартный" data-text="Будет поставляться 5-8 экранов с основными функциями, такими как аутентификация и управление профилями">Стандарт</button>
+                <button style="border-top-right-radius: 7px; border-left: none; border-left: right; border-top: none ; " class="tab" data-price="799.90" data-title="Премиум" data-text="Доставит индивидуальное приложение в соответствии с вашими требованиями">Премиум</button>
+            </div>
+            <h2 class="title-display">Базовый</h2>
+            <div class="price-display">€291.90</div>
+            <div class="description">Поставит мобильное приложение на 2-3 статичных экрана</div>
+
+            <p><i class="fa-regular fa-clock"></i> 4-дневная доставка</p>
+            <div class="complete_sessions">
+                <span><i class="fa-solid fa-check"></i> Функциональное приложение для Android</span>
+                <span><i class="fa-solid fa-check"></i> Функциональное приложение IOS</span>
+                <span><i class="fa-solid fa-check"></i> Дизайн приложения</span>
+                <span><i class="fa-solid fa-check"></i> Иконка приложения</span>
+                <span><i class="fa-solid fa-check"></i> Заставки</span>
+                <span><i class="fa-solid fa-check"></i> Интеграция с рекламными сетями</span>
+                <span style="border-bottom: 1px solid #ccc; padding: 0px 0px 20px 0px;"><i class="fa-solid fa-check"></i> Исходный код</span>
+            </div>
+            <div class="final_block">
+                <button>Продолжить <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+
+        </div>
+        <hr style="opacity: 0.3; position: relative; top: 40px;">
+    </section>
+    <section style="margin-top: 100px;" class="freelance_pro">
+        <h1 style="margin-bottom: 20px; position: relative; left: 20px; color: #333333; font-size: 28px;">Могут понравиться</h1>
+        <div style="top: 1180px;" class="btn_arrows">
+            <button class="left_btn"><i class="fa-solid fa-chevron-left"></i></button>
+            <button class="right_btn"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+        <div class="slider-wrapper">
+            <div class="slider-container">
+                <div class="pro_info">
+                    <img src="img/Я.jpg" alt="">
+                    <div class="basket_info">
+                        <div class="block_info_main">
+                            <h4 style=" border-right: 1px solid #ccc;">Данил</h4>
+                            <a class="rotation_nf" href="profile.html"><h4 style=" color: #777777;">@moderpro</h4></a>
+                            <h5>Кодинг & разроботка</h5>
+                            <span class="rewies_icon"><i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star-half"></i> 4.5 </span>
+                            <strong style="margin-left: 5px; position: relative; top: 10px;">От 1000 UAH</strong>
+                        </div>
+                        <p>Наше агентство выполнит современный дизайн мобильного приложения UI UX дизайн figma app mockup prototype web app uiux</p>
+                        <div class="btn">
+                            <button><i class="fa-solid fa-heart"></i></button>
+                            <button><i class="fa-regular fa-message"></i></button>
+                        </div>
+                    </div>                
+                    
+                </div>
+                <div class="pro_info">
+                    <img src="img/Я.jpg" alt="">
+                    <div class="basket_info">
+                        <div class="block_info_main">
+                            <h4 style=" border-right: 1px solid #ccc;">Данил</h4>
+                            <a class="rotation_nf" href="#"><h4 style=" color: #777777;">@moderpro</h4></a>
+                            <h5>Кодинг & разроботка</h5>
+                            <span class="rewies_icon"><i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star-half"></i> 4.5 </span>
+                            <strong style="margin-left: 5px; position: relative; top: 10px;">От 1000 UAH</strong>
+                        </div>
+                        <p>Наше агентство выполнит современный дизайн мобильного приложения UI UX дизайн figma app mockup prototype web app uiux</p>
+                        <div class="btn">
+                            <button><i class="fa-solid fa-heart"></i></button>
+                            <button><i class="fa-regular fa-message"></i></button>
+                        </div>
+                    </div>                
+                    
+                </div>
+                <div class="pro_info">
+                    <img src="img/Я.jpg" alt="">
+                    <div class="basket_info">
+                        <div class="block_info_main">
+                            <h4 style=" border-right: 1px solid #ccc;">Данил</h4>
+                            <a class="rotation_nf" href="#"><h4 style=" color: #777777;">@moderpro</h4></a>
+                            <h5>Кодинг & разроботка</h5>
+                            <span class="rewies_icon"><i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star-half"></i> 4.5 </span>
+                            <strong style="margin-left: 5px; position: relative; top: 10px;">От 1000 UAH</strong>
+                        </div>
+                        <p>Наше агентство выполнит современный дизайн мобильного приложения UI UX дизайн figma app mockup prototype web app uiux</p>
+                        <div class="btn">
+                            <button><i class="fa-solid fa-heart"></i></button>
+                            <button><i class="fa-regular fa-message"></i></button>
+                        </div>
+                    </div>                
+                    
+                </div>
+                <div class="pro_info">
+                    <img src="img/Я.jpg" alt="">
+                    <div class="basket_info">
+                        <div class="block_info_main">
+                            <h4 style=" border-right: 1px solid #ccc;">Данил</h4>
+                            <a class="rotation_nf" href="#"><h4 style=" color: #777777;">@moderpro</h4></a>
+                            <h5>Кодинг & разроботка</h5>
+                            <span class="rewies_icon"><i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star-half"></i> 4.5 </span>
+                            <strong style="margin-left: 5px; position: relative; top: 10px;">От 1000 UAH</strong>
+                        </div>
+                        <p>Наше агентство выполнит современный дизайн мобильного приложения UI UX дизайн figma app mockup prototype web app uiux</p>
+                        <div class="btn">
+                            <button><i class="fa-solid fa-heart"></i></button>
+                            <button><i class="fa-regular fa-message"></i></button>
+                        </div>
+                    </div>                
+                    
+                </div>
+                <div class="pro_info">
+                    <img src="img/Я.jpg" alt="">
+                    <div class="basket_info">
+                        <div class="block_info_main">
+                            <h4 style=" border-right: 1px solid #ccc;">Данил</h4>
+                            <a class="rotation_nf" href="#"><h4 style=" color: #777777;">@moderpro</h4></a>
+                            <h5>Кодинг & разроботка</h5>
+                            <span class="rewies_icon"><i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star-half"></i> 4.5 </span>
+                            <strong style="margin-left: 5px; position: relative; top: 10px;">От 1000 UAH</strong>
+                        </div>
+                        <p>Наше агентство выполнит современный дизайн мобильного приложения UI UX дизайн figma app mockup prototype web app uiux</p>
+                        <div class="btn">
+                            <button><i class="fa-solid fa-heart"></i></button>
+                            <button><i class="fa-regular fa-message"></i></button>
+                        </div>
+                    </div>                
+                    
+                </div>
+                <div class="pro_info">
+                    <img src="img/Я.jpg" alt="">
+                    <div class="basket_info">
+                        <div class="block_info_main">
+                            <h4 style=" border-right: 1px solid #ccc;">Данил</h4>
+                            <a class="rotation_nf" href="#"><h4 style=" color: #777777;">@moderpro</h4></a>
+                            <h5>Кодинг & разроботка</h5>
+                            <span class="rewies_icon"><i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star-half"></i> 4.5 </span>
+                            <strong style="margin-left: 5px; position: relative; top: 10px;">От 1000 UAH</strong>
+                        </div>
+                        <p>Наше агентство выполнит современный дизайн мобильного приложения UI UX дизайн figma app mockup prototype web app uiux</p>
+                        <div class="btn">
+                            <button><i class="fa-solid fa-heart"></i></button>
+                            <button><i class="fa-regular fa-message"></i></button>
+                        </div>
+                    </div>                
+                    
+                </div>
+                <div class="pro_info">
+                    <img src="img/она.jpg" alt="">
+                    <div class="basket_info">
+                        <div class="block_info_main">
+                            <h4 style=" border-right: 1px solid #ccc;">Алина</h4>
+                            <a class="rotation_nf" href="#"><h4 style=" color: #777777;">@kalindi12341</h4></a>
+                            <h5>Дизайн & обработка</h5>
+                            <span class="rewies_icon"><i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star-half"></i> 4.5 </span>
+                            <strong style="margin-left: 5px; position: relative; top: 10px;">От 10000 UAH</strong>
+                        </div>
+                        <p>Наше агентство выполнит современный дизайн мобильного приложения UI UX дизайн figma app mockup prototype web app uiux</p>
+                        <div class="btn">
+                            <button><i class="fa-solid fa-heart"></i></button>
+                            <button><i class="fa-regular fa-message"></i></button>
+                        </div>
+                    </div>                
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const slider = document.querySelector(".slider-container");
+            const leftBtn = document.querySelector(".left_btn");
+            const rightBtn = document.querySelector(".right_btn");
+    
+            let scrollPosition = 0;
+            const scrollAmount = slider.clientWidth / 2.63; // Двигаем на ширину одной карточки
+            const maxScroll = -(slider.scrollWidth - slider.clientWidth); // Максимальный сдвиг влево
+    
+            function updateButtons() {
+                leftBtn.disabled = scrollPosition >= 0; // Если в самом начале
+                rightBtn.disabled = scrollPosition <= maxScroll; // Если в самом конце
+            }
+    
+            rightBtn.addEventListener("click", () => {
+                if (scrollPosition > maxScroll) {
+                    scrollPosition -= scrollAmount;
+                    slider.style.transform = `translateX(${scrollPosition}px)`;
+                }
+                updateButtons();
+            });
+    
+            leftBtn.addEventListener("click", () => {
+                if (scrollPosition < 0) {
+                    scrollPosition += scrollAmount;
+                    slider.style.transform = `translateX(${scrollPosition}px)`;
+                }
+                updateButtons();
+            });
+    
+            // Проверяем кнопки сразу при загрузке
+            updateButtons();
+        });
+    </script>
+
+    <script>
+        
+document.addEventListener("DOMContentLoaded", function () {
+    const tabs = document.querySelectorAll(".tab");
+    const titleDisplay = document.querySelector(".title-display");
+    const priceDisplay = document.querySelector(".price-display");
+    const descriptionDisplay = document.querySelector(".description");
+
+    tabs.forEach(tab => {
+        tab.addEventListener("click", function () {
+            tabs.forEach(t => t.classList.remove("selected"));
+            this.classList.add("selected");
+            titleDisplay.textContent = this.getAttribute("data-title");
+            priceDisplay.textContent = `€${this.getAttribute("data-price")}`;
+            descriptionDisplay.textContent = this.getAttribute("data-text");
+        });
+    });
+});
+    </script>
+     <footer style="margin-top: 75px;" class="footer">
+    
+        <div style="position: relative; top: -36px;" class="for_clients_footer">
+            <h2>Для клиентов</h2>
+            <a href="#">Что такое ModerWeb</a>
+            <a href="#">Каталог проектов</a>
+            <a href="#">Опубликовать проект</a>
+            <a href="#">О ModerWeb</a>
+            <a href="#">Доверие и безопасность</a>
+            <a href="#">Как это работает</a>
+            <a href="#">Отзывы и рейтинги</a>
+            <a href="#">Цены и комиссии</a>
+            <a href="#">FAQ для клиентов</a>
+        </div>
+
+        <div style="margin-left: 100px; position: relative; top: -155px;" class="for_clients_footer">
+            <h2>Для фрилансеров</h2>
+            <a href="#">Станьте фрилансером</a>
+            <a href="#">Как найти работу</a>
+            <a href="#">Офлайн робота</a>
+            <a href="#">ModerPro</a>
+            <a href="#">Стартовый бонус</a>
+            <a href="#">FAQ для фрилансеров</a>
+        </div>
+
+        <div style="margin-left: 100px;" class="for_clients_footer">
+            <h2>Категории</h2>
+            <a href="#">Графика & дизайн</a>
+            <a href="#">Видео & анимация</a>
+            <a href="#">Написание & перевод</a>
+            <a href="#">Музыка & видео</a>
+            <a href="#">Кодинг & технологии</a>
+            <a href="#">Услуги ИИ</a>
+            <a href="#">Цифровой Маркетинг</a>
+            <a href="#">Инженерия & архитектура</a>
+            <a href="#">Бизнес</a>
+            <a href="#">Смотреть больше...</a>
+        </div>
+
+        <div style="float: right;" class="for_clients_footer">
+            <h2>Компания</h2>
+            <a href="#">О ModerWeb</a>
+            <a href="#">Карьера</a>
+            <a href="#">Пресса и новости</a>
+            <a href="#">Партнёрство</a>
+            <a href="#">Контакты</a>
+            <a href="#">Политика конфиденциальности</a>
+            <a href="#">Условия использования</a>
+            <a href="#">Юридическая информация</a>
+        </div>
+
+        <div style="float: right; margin-right: 100px;" class="for_clients_footer">
+            <h2>Ресурсы</h2>
+            <a href="#">Помощь и поддержка</a>
+            <a href="#">Реферальная программа</a>
+            <a href="#">Руководства</a>
+            <a href="#">Безопасность</a>
+            <a href="#">Обучающие материалы</a>
+            <a href="#">API и разработчикам</a>
+            <a href="#">Новости и обновления</a>
+        </div>
+
+                <hr class="hr_footer">
+                <h1>Moder<strong class="cl">Web</strong></h1>
+                    <div class="footer_down">
+                        <p>© ModerWeb Digital Ltd. 2025</p>
+                        <div class="social">
+                            <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+                            <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                            <a href="#"><i class="fa-brands fa-telegram"></i></a>
+                            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                        </div>
+                    </div>
+    </footer>
+
+</body>
+</html>

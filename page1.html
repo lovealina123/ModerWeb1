@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="pagesRU.css">
+    <script src="https://kit.fontawesome.com/c88a483c56.js" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+    <title>ModerWeb</title>
+</head>
+<body>
+
+ <header class="header_container">
+    <a class="logo_a" href="page1.html"><span class="logo">Moder<strong class="cl">Web</strong></span></a>
+    <nav>
+        <ul>
+            <li><a id="showPopup" class="moderpro" href="#">ModerPro <i class="fa-solid fa-chevron-up arrow"></i></a></li>
+
+            <div id="popupContainer" class="popup-overlay">
+                        <div class="popup-box">
+                            <a href="#">
+                                    <span class="popup-close">&times;</span>
+                                    <img src="img/profr.svg" alt="">
+
+                                    <div style="top: 95px;" class="long_pro">
+                                        <h4 class="h4_pop">Начать заробатывать</h4>
+                                        <p>Я хочу самостоятельно выбирать проекты и стабильно зарабатывать.</p>
+                                    </div>
+                                </a>
+
+                                <a style="margin-top: 20px;" href="#">
+                                    <span class="popup-close">&times;</span>
+                                    <img src="img/заказ.svg" alt="">
+
+                                    <div class="long_pro">
+                                        <h4 style="width: 300px;" class="h4_pop">Получить профессиональные услуги</h4>
+                                        <p style="width: 300px;">Получите профессиональные услуги от специалистов, которые точно знают, как выполнить вашу задачу</p>
+                                    </div>
+                                </a>
+                        </div>
+            </div>
+
+            <script>
+                        const button = document.getElementById("showPopup");
+                    const popup = document.getElementById("popupContainer");
+                    const closeButton = document.querySelector(".popup-close");
+                    const arrow = document.querySelector(".arrow");
+
+                    // Открытие окна
+                    button.addEventListener("click", function (event) {
+                        event.preventDefault(); // Чтобы не было перезагрузки страницы
+                        popup.style.display = "block";
+                        arrow.classList.add("rotated");
+                    });
+
+                    // Закрытие окна
+                    closeButton.addEventListener("click", function () {
+                        popup.style.display = "none";
+                        arrow.classList.remove("rotated");
+                    });
+
+                    // Закрытие по клику вне окна
+                    window.addEventListener("click", function (event) {
+                        if (event.target === popup) {
+                            popup.style.display = "none";
+                            arrow.classList.remove("rotated");
+                        }
+                    });
+            </script>
+
+
+            <li><a href="pagemain.html">О нас</a></li>
+            <li><a href="#">Почему мы?</a></li>
+            <li><a href="#">Помощь</a></li>
+    
+            <li class="sperate"><button class="sperate_a" id="openLangModal"><i class="fa-solid fa-globe"></i></button></li>
+            <li><button class="open-window-btn">Войти</button></li>
+            <li><button class="active_reg" id="openModalBtn">Присоедениться</button></li>
+
+
+            <!-- Модуль языков -->
+            <div id="langModal" class="lang-popup">
+                <div class="lang-popup-content">
+                    <span class="lang-close-btn" id="closeLangModal">&times;</span>
+                    <h2>Выберите язык:</h2>
+                    <span class="langueg">Язык</span>
+                    <hr class="hr_lang">
+                    <ul style="display: block; width: 100px;" class="ul_lang">    
+                        <li style="margin-top: 30px;"><a class="lang_UK" href="#"><span class="active_lang lang_UK" href="#">Русский <i class="fa-solid fa-check"></i></span></a></li>
+                        <li><a class="lang_UK" href="#"><span class="lang_UK" href="#">Україньский</span></a></li>
+                        <li><a class="lang_UK" href="#"><span class="lang_UK" href="#">Английский</span></a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <script>
+                    document.addEventListener("DOMContentLoaded", function () {
+                    const openBtn = document.getElementById("openLangModal");
+                    const closeBtn = document.getElementById("closeLangModal");
+                    const modal = document.getElementById("langModal");
+
+                    openBtn.addEventListener("click", function () {
+                        modal.style.display = "block";
+                    });
+
+                    closeBtn.addEventListener("click", function () {
+                        modal.style.display = "none";
+                    });
+
+                    window.addEventListener("click", function (event) {
+                        if (event.target === modal) {
+                            modal.style.display = "none";
+                        }
+                    });
+                });
+            </script>
+
+            <!-- Вход модуль -->
+    
+            <div class="window" style="display: none;">
+                <div class="window-content">
+                  <span class="close-window-btn">&times;</span>
+                  <h2>Войдите в свою учетную запись</h2>
+                  <p>Нет аккаунта? <a href="#">Присоединяйтесь здесь</a></p>
+                  <form class="login-form">
+                    <h3>Электронная почта</h3>
+                    <input type="email" placeholder="Email" required>
+                    <span class="error-message-sign email-error">Электронная почта должна содержать '@' и '.'</span>
+                    <h3 style="margin-top: 10px;">Пароль</h3>
+                    <input type="password" placeholder="Пароль" required>
+                    <span style="width: 320px;" class="error-message-sign password-error">Пароль должен содержать не менее 8 симбволов</span>
+                    <p><a style="display: block; margin-top: -13px;" class="password_orgot" href="#">Забыл пароль?</a></p>
+                    <button type="submit" class="submit-btn" disabled>Продолжить</button>
+                    <p class="p_dang">Присоединяясь, вы соглашаетесь с <a href="#">Условиями обслуживания ModerWeb</a> и на то, чтобы время от времени получать от нас электронные письма.
+                    Пожалуйста, ознакомьтесь с нашей <a href="#">Политикой конфиденциальности</a> , чтобы узнать, как мы используем ваши персональные данные.</p>
+                  </form>
+                  <img src="img/Входинфо.jpg" alt="">
+                </div>
+              </div>
+
+
+
+              <script>
+const emailInput = document.querySelector('.login-form input[type="email"]');
+const passwordInput = document.querySelector('.login-form input[type="password"]');
+const submitBtn = document.querySelector('.submit-btn');
+const emailError = document.querySelector('.email-error');
+const passwordError = document.querySelector('.password-error');
+
+// Проверка Email
+function validateEmail() {
+  const emailValue = emailInput.value.trim();
+  if (emailValue.includes('@') && emailValue.includes('.')) {
+    emailError.style.color = "transparent";
+    return true;
+  } else {
+    emailError.style.color = "red";
+    return false;
+  }
+}
+
+// Проверка Пароля
+function validatePassword() {
+  const passwordValue = passwordInput.value.trim();
+  if (passwordValue.length >= 8) {
+    passwordError.style.color = "transparent";
+    return true;
+  } else {
+    passwordError.style.color = "red";
+    return false;
+  }
+}
+
+// Функция проверки заполненности полей
+function checkInputs() {
+  const isEmailValid = validateEmail();
+  const isPasswordValid = validatePassword();
+
+  // Если всё правильно, активируем кнопку
+  if (isEmailValid && isPasswordValid) {
+    submitBtn.disabled = false;
+  } else {
+    submitBtn.disabled = true;
+  }
+}
+
+// Проверка при вводе данных в поля
+emailInput.addEventListener('input', checkInputs);
+passwordInput.addEventListener('input', checkInputs);
+
+// Обработка отправки формы
+document.querySelector('.login-form').addEventListener('submit', (event) => {
+  event.preventDefault();
+  alert('Форма успешно отправлена!');
+});
+              </script>
+
+              
+              <script>
+                // Открытие окна
+                    function openWindow() {
+                    const windowElement = document.querySelector('.window');
+                    windowElement.style.display = 'flex';
+                    document.body.classList.add('no-scroll');
+                    }
+
+    // Закрытие окна
+            function closeWindow() {
+            const windowElement = document.querySelector('.window');
+            windowElement.style.display = 'none';
+            document.body.classList.remove('no-scroll');
+            }
+
+            // Открытие по нажатию на кнопку
+            document.querySelector('.open-window-btn').addEventListener('click', openWindow);
+
+            // Закрытие по нажатию на крестик
+            document.querySelector('.close-window-btn').addEventListener('click', closeWindow);
+
+            // Закрытие по клику вне окна
+            window.addEventListener('click', (event) => {
+            const windowElement = document.querySelector('.window');
+            if (event.target === windowElement) {
+                closeWindow();
+            }
+            });
+
+            // Обработка отправки формы
+            document.querySelector('.login-form').addEventListener('submit', (event) => {
+            event.preventDefault();
+            alert('Форма отправлена!');
+            closeWindow();
+            });
+              </script>
+
+
+            <!-- Регистрация модуль -->
+
+            <div id="modal" class="modal">
+                <div class="modal-content">
+                    <span class="close-btn" id="closeModalBtn">&times;</span>
+                    <h2>Добро пожаловать! Заполните форму для регистрации.</h2>
+                    <form id="myForm" novalidate> 
+                        <div class="name">
+                            <h3>Имя</h3>
+                                <input class="name_sign" id="name" style="width: 180px; margin-top: 10px;"  type="text" required>
+                                <p class="error-message">Заполните все поля</p>
+                        </div>
+                        <div style="position: relative; top: -31px;" class="name">
+                            <h3>Фамилия</h3>
+                                <input id="surname" style="width: 180px; margin-top: 10px;" type="text" required>
+                        </div>
+                        <h3>Адрес электроной почты</h3>
+                            <input id="email" class="input_reg" type="email" placeholder="k********@gmail.com" required>
+                            <p class="error-message" id="emailError">В вашем email должны быть "@" и "." </p>
+                        <h3>Выберите имя пользователя</h3> 
+                            <input class="input_reg" type="text" required>
+                        <h3>Придумайте пароль</h3>
+                            <input id="password" class="input_reg" type="password" required>
+                            <p class="error-message-wisible">Минимальный пароль должен состоять не менее 8 симбволов</p>
+                        <div class="info_p">
+                            <button  type="submit" class="btn_register">Создайте учетную запись ModerWeb</button>
+                            <p>Присоединяясь, вы соглашаетесь с <a href="#">Условиями обслуживания ModerWeb</a> и время от времени получать от нас электронные письма.
+                            Пожалуйста, ознакомьтесь с нашей <a href="#">Политикой конфиденциальности</a>, чтобы узнать, как мы используем ваши персональные данные.</p>
+                        </div>
+                    </form>
+                    <img src="img/Регфото.jpg" alt="">
+                </div>
+            </div>
+
+            <!-- Красный текст при ошибки -->
+
+            <script>
+                            document.getElementById("myForm").addEventListener("submit", function(event) {
+                            event.preventDefault(); // Отключаем стандартное поведение отправки формы
+
+                            // Получаем все элементы формы
+                            let emailInput = document.getElementById("email");
+                            let passwordInput = document.getElementById("password");
+                            let nameInput = document.getElementById("name");
+
+                            let emailError = document.getElementById("emailError");
+                            let passwordError = document.getElementById("passwordError");
+                            let nameError = document.getElementById("nameError");
+
+                            // Валидация email
+                            let emailValue = emailInput.value;
+                            let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                            if (!emailPattern.test(emailValue)) {
+                                emailInput.classList.add("invalid");
+                            } else {
+                                emailInput.classList.remove("invalid");
+                            }
+
+                            // Валидация пароля
+                            let passwordValue = passwordInput.value;
+                            if (passwordValue.length < 8) {
+                                passwordInput.classList.add("invalid");
+                            } else {
+                                passwordInput.classList.remove("invalid");
+                            }
+
+                            // Проверка на заполнение имени
+                            let nameValue = nameInput.value;
+                            if (nameValue.trim() === "") {
+                                nameInput.classList.add("invalid");
+                            } else {
+                                nameInput.classList.remove("invalid");
+                            }
+
+                            // Проверяем наличие класса 'invalid'
+                            if (document.querySelectorAll('.invalid').length === 0) {
+                                alert("Форма успешно отправлена!");
+                            }
+                        }); 
+            </script>
+
+            <!-- Модульное окно -->
+
+            <script>
+                    const modal = document.getElementById('modal');
+                    const openModalBtn = document.getElementById('openModalBtn');
+                    const closeModalBtn = document.getElementById('closeModalBtn');
+
+                    // Открытие модального окна
+                    openModalBtn.addEventListener('click', () => {
+                        modal.style.display = 'flex';
+                    });
+
+                    // Закрытие модального окна
+                    closeModalBtn.addEventListener('click', () => {
+                        modal.style.display = 'none';
+                    });
+
+                    // Закрытие при клике вне модального окна
+                    window.addEventListener('click', (event) => {
+                        if (event.target === modal) {
+                            modal.style.display = 'none';
+                        }
+                    });
+            </script>
+
+        </ul>
+    </nav>
+ </header>
+ <hr class="hr_block">
+
+        <section class="container">
+            <div class="container_block">
+                <div class="container_info">
+                    <div class="info_block">
+                        <div class="custom_block_active">
+                            <span>О проекте</span>
+                        </div>
+                        <div class="custom_block">
+                            <span>Найти фрилансера</span>
+                        </div>
+                        <div class="custom_block">
+                            <span>Опубликовать проект</span>
+                        </div>
+                    </div>
+                        <h1>Начинай свой путь вместе с ModerWeb: надежность, лучшие специалисты и безграничные возможности для роста!</h1>
+                        <input id="search-input" type="text" placeholder="Поиск навыков или услуг..."> <i class="fa-solid fa-magnifying-glass"></i>
+                        <ul class="suggestions-list" id="suggestions">
+                            <li>Видео монтаж</li>
+                            <li>Виртуальный ассистент</li>
+                            <li>SEO оптимизация</li>
+                            <li>Графический дизайн</li>
+                            <li>Разработка сайтов</li>
+                            <li>Копирайтинг</li>
+                        </ul>
+                        
+
+                        <div class="requests">
+                            <span class="requests_info_active">Популярные услуги:</span>
+                            <span class="requests_info">Веб-дизайн</span>
+                            <span class="requests_info">Услуги ИИ</span>
+                            <span class="requests_info">Музыка и видео</span>
+                        </div>
+                </div>
+            </div>
+        </section>
+
+        <script>
+                            document.addEventListener("DOMContentLoaded", function () {
+                            const input = document.getElementById("search-input");
+                            const list = document.getElementById("suggestions-list");
+                            const items = list.getElementsByTagName("li");
+
+                            input.addEventListener("input", function () {
+                                const filter = input.value.trim().toLowerCase();
+                                
+                                if (filter.length === 0) {
+                                    list.style.display = "none"; // Скрыть панель, если пусто
+                                    return;
+                                }
+
+                                let hasMatch = false;
+
+                                for (let item of items) {
+                                    if (item.textContent.toLowerCase().includes(filter)) {
+                                        item.style.display = "block"; // Показать совпадения
+                                        hasMatch = true;
+                                    } else {
+                                        item.style.display = "none"; // Скрыть неподходящие элементы
+                                    }
+                                }
+
+                                list.style.display = hasMatch ? "block" : "none"; // Показать панель только при наличии совпадений
+                            });
+
+                            // Скрываем панель при клике вне инпута
+                            document.addEventListener("click", function (e) {
+                                if (!input.contains(e.target) && !list.contains(e.target)) {
+                                    list.style.display = "none";
+                                }
+                            });
+                        });
+        </script>
+
+        <section class="categories">
+            <div class="categories_info">
+                <div style="margin-left: 215px;" class="categories_block active">
+                    <img src="img/img.category/Графика.svg" alt="">
+                    <h4>Графика & дизайн</h4>
+                </div>
+                <div class="categories_block video">
+                    <img src="img/img.category/Видео.svg" alt="">
+                    <h4>Видео & анимация</h4>
+                </div>
+                <div class="categories_block translate">
+                    <img src="img/img.category/Превод.svg" alt="">
+                    <h4>Написание & перевод</h4>
+                </div>
+                <div class="categories_block music">
+                    <img src="img/img.category/Музыка.svg" alt="">
+                    <h4>Музыка & видео</h4>
+                </div>
+                <div style="position: relative; top: -18px; height: 102px;" class="categories_block AI">
+                    <img src="img/img.category/ИИ.svg" alt="">
+                    <h4>Услуги ИИ</h4>
+                </div>
+                <div class="categories_block code">
+                    <img src="img/img.category/Програмирование.svg" alt="">
+                    <h4>Кодинг & технологии</h4>
+                </div>
+                <div class="categories_block mark">
+                    <img src="img/img.category/Маркейтинг.svg" alt="">
+                    <h4>Цифровой Маркетинг</h4>
+                </div>
+                <div style="position: relative; top: -18px; height: 102px;" class="categories_block golden">
+                    <img src="img/img.category/Бизнес.svg" alt="">
+                    <h4>Бизнес</h4>
+                </div>
+            </div>
+        </section>
+
+        <section class="clients">
+            <a href="https://www.pexels.com/ru-ru/photo/apple-magic-mouse-392018/"><i class="fa-solid fa-info information"></i></a>
+            <div style="height: 1050px;" class="for_clients">
+                <h1>Для клиентов</h1>
+                <img src="img/дляклиентов.jpg" alt="">
+                <div class="for_clients_block">
+                    <h2>Найдите лучших специалистов</h2>
+                    <p>Сотрудничайте с широкой сетью независимых профессионалов и достигайте впечатляющих результатов.
+                    Наша платформа соединяет вас с экспертами в различных областях, помогая эффективно решать задачи любой сложности.</p>
+                    
+                        <div class="privilege">
+                            <h5><i class="fa-solid fa-upload"></i> Публикуйте свой проект здесь</h5>
+                            <h5><i class="fa-solid fa-comments"></i> Коммуницируйте правильно и результативно</h5>
+                            <h5><i class="fa-solid fa-credit-card"></i> Оплачивайте и получите свой заказ быстро и без лишних забот</h5>
+                        </div>
+                        <a href="#"><h4>Опубликовать</h4></a>
+                        <a href="#"><h4 style="width: 165px; position: relative; top: 116px; left: 1205px; ">Узнать больше</h4></a>
+                </div>
+            </div>
+        </section>
+
+        <section class="clients_smoll">
+            <h1>Реализуйте это все с помощью фрилансеров</h1>
+        <div class="smoll_info">
+            <div class="smoll_block">
+                <img src="img/smoll.img/категории.svg" alt="">
+                <p>Получите доступ к пулу лучших талантов в 700 категориях</p>
+            </div>
+            <div style="margin-left: 155px;" class="smoll_block">
+                <img style="opacity: 0.8;" src="img/smoll.img/молния.svg" alt="">
+                <p>Качественная работа в срок и в рамках бюджета</p>
+            </div>
+            <div style="float: right; margin-right: 70px;" class="smoll_block">
+                <img src="img/smoll.img/оплата.svg" alt="">
+                <p>Оплата только тогда, когда вы довольны результатом</p>
+            </div>
+            <div style="float: right; margin-right: 100px;" class="smoll_block">
+                <img style="opacity: 0.8;" src="img/smoll.img/Выполнение.svg" alt="">
+                <p style="width: 300px;">Используйте простой и удобный интерфейс для легкого сопоставления</p>
+            </div>
+        </div>
+        </section>
+
+    <section class="servis">
+
+            <h1>Популярные категории:</h1>
+        <div class="populyarity_block">
+            <div class="populyarity_servis">
+                <img src="img/img.populyarity/веб-дизайн.svg" alt="">
+                <p>Разроботка веб-сайтов</p>
+            </div>
+        </div>
+
+        <div class="populyarity_block">
+            <div class="populyarity_servis">
+                <img src="img/img.populyarity/веб-дизайн.svg" alt="">
+                <p>Разроботка веб-сайтов</p>
+            </div>
+        </div>
+
+        <div class="populyarity_block">
+            <div class="populyarity_servis">
+                <img src="img/img.populyarity/веб-дизайн.svg" alt="">
+                <p>Разроботка веб-сайтов</p>
+            </div>
+        </div>
+
+        <div class="populyarity_block">
+            <div class="populyarity_servis">
+                <img src="img/img.populyarity/веб-дизайн.svg" alt="">
+                <p>Разроботка веб-сайтов</p>
+            </div>
+        </div>
+
+        <div class="populyarity_block">
+            <div class="populyarity_servis">
+                <img src="img/img.populyarity/веб-дизайн.svg" alt="">
+                <p>Разроботка веб-сайтов</p>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="for_freelance">
+        <span class="logo_freelance">Для фрилансеров</span>
+        <div class="freelance">
+            <div class="freelance_block">
+                <img src="img/img.freelance/дляфриланса2.jpg" alt="">
+                <h1>Начни зарабатывать на фрилансе</h1>
+                <p>Работайте над интересными проектами, управляйте своим временем и развивайте навыки вместе с нами.
+                Наша платформа объединяет профессионалов и заказчиков, создавая удобное пространство для сотрудничества.
+                Присоединяйтесь и находите новые возможности для роста и заработка.</p>
+
+                <p><i class="fa-solid fa-brain"></i> Находи задания, которые соответствуют твоему опыту и интересам. Работай над тем, что нравится! </p>
+
+                <p><i class="fa-solid fa-chart-simple"></i> Определяй удобный график и работай в своём ритме, сохраняя баланс между работой и отдыхом. </p>
+
+                <p><i class="fa fa-graduation-cap"></i> Повышай квалификацию, выполняя интересные задачи, и получай достойное вознаграждение за свой труд. </p>
+                
+                <a class="btn_freelance" href="#">Начать зарабатывать</a>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="brown">
+        <div class="brown_banner">
+            <h1>Фрилансеры всегда на связи и готовы помочь.</h1>
+        </div>
+    </section>
+
+    <footer class="footer">
+    
+        <div style="position: relative; top: -36px;" class="for_clients_footer">
+            <h2>Для клиентов</h2>
+            <a href="#">Что такое ModerWeb</a>
+            <a href="#">Каталог проектов</a>
+            <a href="#">Опубликовать проект</a>
+            <a href="#">О ModerWeb</a>
+            <a href="#">Доверие и безопасность</a>
+            <a href="#">Как это работает</a>
+            <a href="#">Отзывы и рейтинги</a>
+            <a href="#">Цены и комиссии</a>
+            <a href="#">FAQ для клиентов</a>
+        </div>
+
+        <div style="margin-left: 100px; position: relative; top: -155px;" class="for_clients_footer">
+            <h2>Для фрилансеров</h2>
+            <a href="#">Станьте фрилансером</a>
+            <a href="#">Как найти работу</a>
+            <a href="#">Офлайн робота</a>
+            <a href="#">ModerPro</a>
+            <a href="#">Стартовый бонус</a>
+            <a href="#">FAQ для фрилансеров</a>
+        </div>
+
+        <div style="margin-left: 100px;" class="for_clients_footer">
+            <h2>Категории</h2>
+            <a href="#">Графика & дизайн</a>
+            <a href="#">Видео & анимация</a>
+            <a href="#">Написание & перевод</a>
+            <a href="#">Музыка & видео</a>
+            <a href="#">Кодинг & технологии</a>
+            <a href="#">Услуги ИИ</a>
+            <a href="#">Цифровой Маркетинг</a>
+            <a href="#">Инженерия & архитектура</a>
+            <a href="#">Бизнес</a>
+            <a href="#">Смотреть больше...</a>
+        </div>
+
+        <div style="float: right;" class="for_clients_footer">
+            <h2>Компания</h2>
+            <a href="#">О ModerWeb</a>
+            <a href="#">Карьера</a>
+            <a href="#">Пресса и новости</a>
+            <a href="#">Партнёрство</a>
+            <a href="#">Контакты</a>
+            <a href="#">Политика конфиденциальности</a>
+            <a href="#">Условия использования</a>
+            <a href="#">Юридическая информация</a>
+        </div>
+
+        <div style="float: right; margin-right: 100px;" class="for_clients_footer">
+            <h2>Ресурсы</h2>
+            <a href="#">Помощь и поддержка</a>
+            <a href="#">Реферальная программа</a>
+            <a href="#">Руководства</a>
+            <a href="#">Безопасность</a>
+            <a href="#">Обучающие материалы</a>
+            <a href="#">API и разработчикам</a>
+            <a href="#">Новости и обновления</a>
+        </div>
+
+                <hr class="hr_footer">
+                <h1>Moder<strong class="cl">Web</strong></h1>
+                    <div class="footer_down">
+                        <p>© ModerWeb Digital Ltd. 2025</p>
+                        <div class="social">
+                            <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+                            <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                            <a href="#"><i class="fa-brands fa-telegram"></i></a>
+                            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                        </div>
+                    </div>
+    </footer>
+
+    
+
+</body>
+</html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ru-ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="pagesRU_main.css">
+    <script src="https://kit.fontawesome.com/c88a483c56.js" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+    <title>ModerWeb</title>
+</head>
+<body>
+
+    <header>
+        <a class="logo_a" href="page1.html"><span class="logo">Moder<strong class="cl">Web</strong></span></a>
+        <input style="width: 505px;" placeholder="Что выберите сегодня?" type="text" id="search_input_main" class="main_input"> <i class="fa-solid fa-magnifying-glass search"></i>
+    </header>
+    <hr class="hr_block">
+    <hr class="prof_vertical">
+
+    <section class="left_block_prof_F">
+        <h2 style="position: relative; left: 90px;">Ваша карточка:</h2>
+        <div class="champing">
+            <img src="img/Я.jpg" alt="">
+            <h3>Данил</h3>
+            <p><a style=" color: #bfbfbfcc; font-weight: 600; font-size: 23px;" href="">Coding & Development</a></p>
+            <p style="left: -10px;" class="rewies"><i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i> 5</p>
+            <a href="#"><p style="position: relative; text-align: left; top: 0px;">Наше агентство выполнит современный дизайн мобильного приложения UI UX дизайн figma app mockup prototype web app uiux</p></a> 
+
+
+            <script>
+                window.onload = function() {
+                    const likeButtons = ["likeButton1", "likeButton2", "likeButton3", "likeButton4" , "likeButton5" , "likeButton6" , "likeButton7" , "likeButton8" , "likeButton9" , "likeButton10" , "likeButton11" , "likeButton12" , "likeButton13"];
+            
+                    likeButtons.forEach(id => {
+                        document.getElementById(id).addEventListener("click", function() {
+                            this.classList.toggle("liked");
+                        });
+                    });
+                };
+            </script>
+            
+
+            <span>От 1000грн</span>
+
+        </div>
+    </section>
+    
+
+    <div class="ppublish">
+        <button>Опубликовать</button>
+    </div>
+    <div class="ppublish_red">
+        <button>Редактировать</button>
+    </div>
+
+
+<div class="pishka"> 
+    <div>
+        <a class="only" href="#">Иследовать ModerWeb <i style="rotate: -45deg;" class="fa-solid fa-arrow-right"></i></a>
+        <a style="top: 880px;" class="onlysh" href="#">Получить Expert <i style="rotate: 45deg;" class="fa-solid fa-arrow-right"></i></a>
+    </div>
+    
+    <p>В настоящее время вы находитесь на своем профиле покупателя. Чтобы получить доступ к своему профилю фрилансера, переключитесь <a href="#">в режим продавца</a></p>
+</div>
+    <section class="right_block">
+        <div class="earnings-card">
+            <h2>Кол-во выполненый заказов:</h2>
+            <p>0</p>
+        </div>
+
+        <div class="balance-card">
+            <div class="balance-card_white">
+                <span>Баланс ModerWeb</span>
+                <h1>0,00</h1><h1>UAH</h1>
+                <button>Вывод средств</button>
+            </div>
+            <div style="height: 0;" class="balance-card_white-right">
+                <h1>Хотите заработать немного кредитов?</h1>
+                <p>Порекомендуйте своим знакомым, и все от этого выиграют!</p>
+                <button>Зароботать кредиты</button>
+            </div>
+        </div>
+
+        <section class="rewies_block">
+            <h1 style="text-align: left;">Ваши отзывы:</h1>
+            <div class="rewies_block_information">
+                <span><i  class="fa-solid fa-star" style="color: #FFD43B;"></i> <i  class="fa-solid fa-star" style="font-size: 20px; color: #FFD43B;"></i> <i class="fa-solid fa-star" style="    font-size: 26px; color: #FFD43B;"></i> <i class="fa-solid fa-star" style="font-size: 20px; color: #FFD43B;"></i> <i class="fa-solid fa-star" style="color: #FFD43B;"></i></span>
+                <p>У вас пока-что нету отзывов</p>
+            </div>
+        </section>
+
+        <section class="income">
+            <h1 style="font-size: 24px; top: -25px;">Статистика:</h1>
+            <div class="income_block">
+                <div class="income_blocks">
+                    <h1>0,00</h1>
+                    <p>За день:</p>
+                </div>
+                <div class="income_blocks">
+                    <h1>0,00</h1>
+                    <p>За неделю:</p>
+                </div>
+                <div class="income_blocks">
+                    <h1>0,00</h1>
+                    <p>За месяц:</p>
+                </div>
+                <div class="income_blocks">
+                    <h1>0,00</h1>
+                    <p>За год:</p>
+                </div>
+                <div class="income_blocks">
+                    <h1>0,00</h1>
+                    <p>За всё время:</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="card-finals">
+                <h2>Время в работе</h2>
+                <p>0</p> <p style="font-size: 18px; margin-left: 24px; top: 145px;">Часов</p>
+            </div>
+
+            <div style="background-color: #ff3b3b;" class="card-finals">
+                <h2 style="left: -55px;">Рейтинг</h2>
+                <p>0.0 <i style="position: absolute; font-size: 18px; top: -125px; left: 190px;" class="fa-solid fa-star"></i></p>
+            </div>
+
+            <div style="background-color: #653bff;" class="card-finals">
+                <h2 style="text-align: left; left: 20px; top: -55px;">Коэффициент завершения</h2>
+                <p>0</p>
+            </div>
+
+            <div style="background-color: #ff3ba7;" class="card-finals">
+                <h2 style="width: 200px; text-align: left; left: -5px; top: -50px;">Средний доход в день</h2>
+                <p>0</p>
+            </div>
+
+            
+        </section>
+
+    </section>
+
+    <div class="dark_bl0ck_pr0f">
+        <div id="navbar" class="inf0_d1rk">
+            <div class="lemnt2">
+                <a title="Домой" href="pagepro.html"><i class="fa-solid fa-house"></i></a>
+            </div>
+            <div class="lemnt2">
+                <a title="Лайнкутые" href="#"><i class="fa-solid fa-heart"></i></a>
+            </div>
+            <div class="lemnt2">
+                <a title="Друзья" href="#"><i class="fa-solid fa-user-group"></i></a>
+            </div>
+            <div class="lemnt2">
+                <a title="Профиль" href="#"><i class="fa-solid fa-user profile"></i></a>
+            </div>
+            <div class="lemnt2">
+                <a title="Настройки" href="#"><i class="fa-solid fa-cog"></i></a>
+            </div>
+            <div class="lemnt2">
+                <a title="Уведомления" href="#"><i class="fa-solid fa-bell"></i></a>
+            </div>
+            <div class="lemnt2">
+                <a title="Реклама" href="#"><i class="fa-solid fa-ad"></i></a>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    
+    <footer style="position: relative; z-index: 0; margin-top: 1100px; margin-bottom: 100px;" class="footer">
+    
+        <div style="position: relative; top: -36px;" class="for_clients_footer">
+            <h2>Для клиентов</h2>
+            <a href="#">Что такое ModerWeb</a>
+            <a href="#">Каталог проектов</a>
+            <a href="#">Опубликовать проект</a>
+            <a href="#">О ModerWeb</a>
+            <a href="#">Доверие и безопасность</a>
+            <a href="#">Как это работает</a>
+            <a href="#">Отзывы и рейтинги</a>
+            <a href="#">Цены и комиссии</a>
+            <a href="#">FAQ для клиентов</a>
+        </div>
+
+        <div style="margin-left: 100px; position: relative; top: -155px;" class="for_clients_footer">
+            <h2>Для фрилансеров</h2>
+            <a href="#">Станьте фрилансером</a>
+            <a href="#">Как найти работу</a>
+            <a href="#">Офлайн робота</a>
+            <a href="#">ModerPro</a>
+            <a href="#">Стартовый бонус</a>
+            <a href="#">FAQ для фрилансеров</a>
+        </div>
+
+        <div style="margin-left: 100px;" class="for_clients_footer">
+            <h2>Категории</h2>
+            <a href="page.categoris/grafik.html">Графика & дизайн</a>
+            <a href="#">Видео & анимация</a>
+            <a href="#">Написание & перевод</a>
+            <a href="#">Музыка & видео</a>
+            <a href="#">Кодинг & технологии</a>
+            <a href="#">Услуги ИИ</a>
+            <a href="#">Цифровой Маркетинг</a>
+            <a href="#">Инженерия & архитектура</a>
+            <a href="#">Бизнес</a>
+            <a href="#">Смотреть больше...</a>
+        </div>
+
+        <div style="float: right;" class="for_clients_footer">
+            <h2>Компания</h2>
+            <a href="#">О ModerWeb</a>
+            <a href="#">Карьера</a>
+            <a href="#">Пресса и новости</a>
+            <a href="#">Партнёрство</a>
+            <a href="#">Контакты</a>
+            <a href="#">Политика конфиденциальности</a>
+            <a href="#">Условия использования</a>
+            <a href="#">Юридическая информация</a>
+        </div>
+
+        <div style="float: right; margin-right: 100px;" class="for_clients_footer">
+            <h2>Ресурсы</h2>
+            <a href="#">Помощь и поддержка</a>
+            <a href="#">Реферальная программа</a>
+            <a href="#">Руководства</a>
+            <a href="#">Безопасность</a>
+            <a href="#">Обучающие материалы</a>
+            <a href="#">API и разработчикам</a>
+            <a href="#">Новости и обновления</a>
+        </div>
+
+                <hr class="hr_footer">
+                <h1>Moder<strong class="cl">Web</strong></h1>
+                    <div class="footer_down">
+                        <p>© ModerWeb Digital Ltd. 2025</p>
+                        <div class="social">
+                            <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+                            <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                            <a href="#"><i class="fa-brands fa-telegram"></i></a>
+                            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                        </div>
+                    </div>
+    </footer>
+
+
+</body>
+</html>

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ru-ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="categoris.css">
+    <script src="https://kit.fontawesome.com/c88a483c56.js" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+    <title>ModerWeb</title>
+</head>
+<body>
+
+    <header>
+        <a class="logo_a" href="page1.html"><span class="logo">Moder<strong class="cl">Pro</strong></span></a>
+            <input placeholder="Что выберите сегодня?" type="text" id="search_input_main" class="main_input"> <i class="fa-solid fa-magnifying-glass search"></i>
+        <nav>
+            <ul>
+            <div class="gadget_main">
+                <li><a class="gadget_maiin" title="Увидомление" href="#"><i class="fa-regular fa-bell"></i></a></li>
+                <li><a class="gadget_maiin" title="Чат" href="pagemassage.html"><i class="fa-regular fa-comment"></i></a></li>
+                <li><a class="gadget_maiin" title="Понравившиесь" href="#"><i class="fa-regular fa-heart"></i></a></li>
+            </div>
+                <button  id="openWindow" style="border: none; background: #fff;"><li><a href="#"><i style="font-size: 28px; position: relative; top: -3px;" class="fa-solid fa-circle-user"></i></a></li></button>
+
+
+                <div id="customWindow" class="custom-window">
+                    <div class="custom-window-content">
+                      <span id="closeWindow" class="close-btn">&times;</span>
+                        <div class="li_modal">
+                            <a href="pageProf.html"><i class="fa-solid fa-user"></i> Профиль</a>
+                            <a href="#"><i class="fa-solid fa-magnifying-glass"></i> Поиск</a>
+                            <a href="#"><i class="fa-solid fa-wallet"></i> Кошелек</a>
+                            <a href="#"><i class="fa-solid fa-upload"></i> Опубликовать проекта</a>
+                            <hr class="modal_hr">
+                            <a href="#"><i class="fa-solid fa-message"></i> Помощь и поддержка</a>
+                            <a href="#"><i class="fa-solid fa-gift"></i> Реферальная система</a>
+                            <a href="#"><i class="fa-solid fa-briefcase"></i> Стать продавцом</a>
+                            <hr class="modal_hr">
+                            <a href="#"><i class="fa-solid fa-heart"></i> Избранное</a>
+                            <a href="#"><i class="fa-solid fa-language"></i> Язык</a>
+                            <a href="#"><i class="fa-solid fa-gear"></i> Настройки</a>
+                            <hr class="modal_hr">
+                            <a href="#"><i class="fa-solid fa-right-from-bracket"></i> Выйти</a>
+                        </div>
+                    </div>
+                  </div>
+
+                  <script>
+                                    const customWindow = document.getElementById("customWindow");
+                    const openWindow = document.getElementById("openWindow");
+                    const closeWindow = document.getElementById("closeWindow");
+
+                    openWindow.addEventListener("click", () => {
+                    customWindow.style.display = "flex"; // Показываем окно
+                    });
+
+                    closeWindow.addEventListener("click", () => {
+                    customWindow.style.display = "none"; // Закрываем окно
+                    });
+
+                    window.addEventListener("click", (e) => {
+                    if (e.target === customWindow) {
+                        customWindow.style.display = "none"; // Закрываем при клике вне окна
+                    }
+                    });
+
+                    // Добавляем обработчик события прокрутки
+                    window.addEventListener("scroll", () => {
+                    customWindow.style.display = "none"; // Скрываем окно при прокрутке
+});
+                  </script>
+
+            </ul>
+        </nav>
+    </header>
+ <hr class="hr_block">
+
+ <section class="mian-block_pr0">
+    <div class="c0l06_6l0ck">
+        <div class="info_6l0ck">
+            <div class="spAn_bl0kc">
+                <span>Просмотрите проверенные таланты</span>
+                <span class="notactive">Каталог фрилансеров</span>
+            </div>
+           <div class="text_mainPro">
+                <h1>Графика & дизайн</h1>
+                <p>Дизайн — это не просто внешний вид, это способ заявить о себе. Мы поможем вам выделиться, подчеркнуть вашу индивидуальность и сделать так, чтобы вас запомнили.</p>
+           </div>
+            <input id="searchInput" type="text" placeholder="Поиск любой услуги...">
+            <span class="clear-btn" id="clearBtn">&times;</span>
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+    </div>
+</section>
+
+
+    <div class="popularity container">
+        <h2>Популярные в Графика & дизайн</h2>
+        <div class="btn_arrows">
+            <button class="btn left"><i class="fa-solid fa-chevron-left"></i></button>
+            <button class="btn right"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+
+        <div class="slider-wrapper">
+            <div class="slider">
+                    <a href="#">
+                        <div class="info_populyarity">
+                            <img src="img/img.podcat/ДизайнЛого.svg" alt=""><span> Дизайн логотипа <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+                    <a href="#">
+                        <div class="info_populyarity">
+                            <img style="opacity: 0.8;" src="img/img.podcat/РедоктФОто.svg" alt=""><span> Редактирование изображений <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+                    <a href="#">
+                        <div class="info_populyarity">
+                            <img style="opacity: 0.8;" src="img/img.podcat/архитектура.svg" alt=""><span> Архитектура и дизайн интерьера <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+                    <a href="#">
+                        <div class="info_populyarity">
+                            <img style="opacity: 0.7;" src="img/img.podcat/дизайн.svg" alt=""><span>Дизайн веб-сайта<i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+                    <a href="#">
+                        <div class="info_populyarity">
+                            <img style="opacity: 0.8;" src="img/img.podcat/илюстрация.svg" alt=""><span>Иллюстрация <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+                    <a href="#">
+                        <div class="info_populyarity">
+                            <img style="opacity: 0.8;" src="img/img.podcat/футболка.svg" alt=""><span> Футболки и товары <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+                    <a href="#">
+                        <div class="info_populyarity">
+                            <img style="opacity: 0.8;" src="img/img.podcat/Часы.svg" alt=""><span> Промышленный и продуктовый дизайн <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+                    <a href="#">
+                        <div class="info_populyarity">
+                            <img style="opacity: 0.7;" src="img/img.podcat/ейфй.svg" alt=""><span> Художники ИИ <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+    </div>
+
+    <script>
+     document.addEventListener("DOMContentLoaded", function () {
+    const slider = document.querySelector(".slider");
+    const leftBtn = document.querySelector(".btn.left");
+    const rightBtn = document.querySelector(".btn.right");
+    const items = document.querySelectorAll(".info_populyarity");
+
+    let currentIndex = 0;
+    const itemWidth = items[0].getBoundingClientRect().width; // Чистая ширина элемента
+    const itemMargin = parseFloat(getComputedStyle(items[0]).marginRight); // Отступ
+    const stepWidth = (itemWidth + itemMargin) * 1.9; // Прокрутка сразу на 2 элемента
+    const maxIndex = Math.ceil(items.length / 2) - 1; // Максимальный индекс (учет групп)
+
+    function updateButtons() {
+        leftBtn.classList.toggle("disabled", currentIndex === 0);
+        rightBtn.classList.toggle("disabled", currentIndex === maxIndex);
+    }
+
+    rightBtn.addEventListener("click", function () {
+        if (currentIndex < maxIndex) {
+            currentIndex++;
+            slider.style.transform = `translateX(-${currentIndex * stepWidth}px)`;
+            updateButtons();
+        }
+    });
+
+    leftBtn.addEventListener("click", function () {
+        if (currentIndex > 0) {
+            currentIndex--;
+            slider.style.transform = `translateX(-${currentIndex * stepWidth}px)`;
+            updateButtons();
+        }
+    });
+
+    // Инициализация кнопок
+    updateButtons();
+});
+    </script>
+
+    <div class="ads_banner">
+        <div class="banner_info">
+            <h1>Огромный дизайн-проект? <strong class="cl">Мы справимся с этим</strong></h1>
+            <p>Наши услуги по комплексному управлению проектами включают:</p>
+            <div class="checked">
+                <span><i class="fa-solid fa-check"></i> Поиск и отбор внештатных талантов для вас</span>
+                <span><i class="fa-solid fa-check"></i> Создание подробного плана проекта, включая объем и бюджет</span>
+                <span><i class="fa-solid fa-check"></i> Выполнение и предоставление исключительных результатов</span>
+            </div>
+            <a href="#">Заказать консультацию</a>
+            <span class="money_jfsd"><i class="fa-solid fa-circle-dollar-to-slot"></i> Гарантия возврата денег</span>
+        </div>
+        <div class="greelanc_gray">
+            <div class="sizing p0ltos">
+                <img src="img/Я.jpg" alt="">
+                <h4>Данил</h4>
+                <p>uufasjhufhuashf</p>
+                <p style="text-align: left; width: 100px;">uufasjhu</p>
+            </div>
+            <div class="sizing p0ltossize">
+                <img src="img/Я.jpg" alt="">
+                <h4>Данил</h4>
+                <p>uufasjhufhuashf</p>
+                <p style="text-align: left; width: 100px;">uufasjhu</p>
+            </div>
+            <div class="sizing p0ltosik">
+                <img src="img/Я.jpg" alt="">
+                <h4>Данил</h4>
+                <p>uufasjhufhuashf</p>
+                <p style="text-align: left; width: 100px;">uufasjhu</p>
+            </div>
+        </div>
+    </div>
+
+
+
+</body>
+</html>

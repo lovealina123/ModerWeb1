@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="ru-ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="pagesRU_main.css">
+    <script src="https://kit.fontawesome.com/c88a483c56.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="scrip.js">
+    <script src="script.js"></script>
+    <title>ModerWeb</title>
+</head>
+<body>
+
+
+    <header>
+        <a class="logo_a" href="page1.html"><span class="logo">Moder<strong class="cl">Web</strong></span></a>
+        <input style="width: 505px;" placeholder="Что выберите сегодня?" type="text" id="search_input_main" class="main_input"> <i class="fa-solid fa-magnifying-glass search"></i>
+    </header>
+ <hr class="hr_block">
+
+    <div class="detailed_navigation">
+        <li><a href="pageSM.html">Аккаунта</a></li>
+        <li><a class="detailed_active" href="#">Платёжные параметры</a></li>
+        <li><a href="pageDop.html">Дополнительные данные</a></li>
+    </div>
+<hr style="margin-top: 20px;" class="hr_block">
+
+    <section class="detailed_registration_payments">
+        <div style="height: 1300px;" class="detailed">
+            <h1 style="top: 0px; left: 15px; width: 519px; font-size: 32px;">Добавьте платёжную информацию</h1>
+            <img style="left: 120px; top: -15px;" src="img/payments.svg" alt="">
+
+            <hr style="top: -5px; width: 850px; left: -30px;" class="hr_detailed">
+
+            <div class="payments_block">
+                <label style="top: 28px;" for="name">ПОЛНОЕ ИМЯ</label>
+                <input type="text" id="name" name="name" required minlength="2" maxlength="50" pattern="[A-Za-zА-Яа-яЁё\s\-]+" placeholder="Введите ваше имя">
+                <i id="name-cross" style="display: none; color: red;" class="fa-solid fa-xmark"></i>
+                <i id="name-check" class="fa-solid fa-check" style="display: none; color: #00b460"></i>
+                <label style="top: 78px;" for="email">ЭЛЕКТРОННАЯ ПОЧТА</label>
+                <input type="email" id="email" name="email" required placeholder="example@mail.com" autocomplete="email">
+                <i id="email-cross" style="top: 467px; display: none; color: red;" class="fa-solid fa-xmark"></i>
+                <i id="email-check" class="fa-solid fa-check" style="top: 467px; display: none; color: #00b460"></i>                
+            </div>
+            <div class="online_check_block">
+                <label class="online_check" for="online">Статус онлайн <i class="fa-solid fa-o"></i></label>
+                <p>Когда вы в сети, ваши концепты отображаются при использовании фильтра «Онлайн».</p>
+
+                <div class="dropdown">
+                    <button class="dropdown-btn">
+                        <span id="selected-text">Выберите статус</span>
+                        <i class="fa-solid fa-chevron-up"></i>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="#" style="pointer-events: none;" data-time="Выберите статус">Выберите статус</a>
+                        <a href="#" data-time="30 минут">30 минут</a>
+                        <a href="#" data-time="2 часа">2 часа</a>
+                        <a href="#" data-time="8 часов">8 часов</a>
+                        <a href="#" data-time="24 часа">24 часа</a>
+                        <a href="#" data-time="Никогда">Никогда</a>
+                    </div>
+                </div>
+
+                <script>
+                    const dropdown = document.querySelector('.dropdown');
+                    const button = document.querySelector('.dropdown-btn');
+                    const selectedText = document.getElementById('selected-text');
+                    const items = document.querySelectorAll('.dropdown-menu a');
+                    const continueBtn = document.querySelector('.continue-btn');
+            
+                    // Функция для загрузки сохраненного значения
+                    function loadSavedStatus() {
+                        const savedStatus = localStorage.getItem('selectedStatus');
+                        if (savedStatus) {
+                            selectedText.textContent = savedStatus;
+                        }
+                    }
+            
+                    // Загружаем сохраненные данные при загрузке страницы
+                    document.addEventListener('DOMContentLoaded', loadSavedStatus);
+            
+                    button.addEventListener('click', function() {
+                        dropdown.classList.toggle('active');
+                    });
+            
+                    document.addEventListener('click', function(event) {
+                        if (!event.target.closest('.dropdown')) {
+                            dropdown.classList.remove('active');
+                        }
+                    });
+            
+                    items.forEach(item => {
+                        item.addEventListener('click', function(event) {
+                            event.preventDefault();
+                            const selectedValue = this.dataset.time;
+                            selectedText.textContent = selectedValue; // Меняем текст кнопки
+                            dropdown.classList.remove('active'); // Закрываем меню
+                            localStorage.setItem('selectedStatus', selectedValue); // Сохраняем в localStorage
+                            console.log("Выбрано:", selectedValue);
+                        });
+                    });
+            
+                    continueBtn.addEventListener('click', function() {
+                        const selectedValue = localStorage.getItem('selectedStatus') || "Не выбрано";
+                        alert("Вы выбрали: " + selectedValue);
+                    });
+                </script>
+
+                <div class="btn_confirm">
+                    <button>Сохранить изменения</button>
+                </div>
+
+                <hr style="top: 150px;" class="hr_detailed">
+                
+                <section class="card_or_bank">
+                    <div class="card_or_bank_block">
+                        <div class="card_or_bank_info">
+                            <label style="top: 10px; left: 45px;" for="name">IBAN:</label>
+                            <i id="iban-cross" style="display: none; color: red;" class="fa-solid fa-xmark"></i>
+                            <i id="iban-check" class="fa-solid fa-check" style="display: none; color: #00b460"></i> <input type="text" id="iban" name="iban" pattern="[A-Za-z]{2}[0-9]{2}[A-Za-z0-9]{4,30}" placeholder="UA00 XXXX XXXX XXXX XXXX XXXX" required>
+                            <label style="top: 80px; left: -5px;" for="email">НОМЕР КАРТЫ</label>
+                            <i id="card-cross" style="display: none; color: red;  top: 78px;" class="fa-solid fa-xmark"></i>
+                            <i id="card-check" style="top: 80px; display: none; color: #00b460;" class="fa-solid fa-check"></i> <input type="tel" id="cardNumber" name="cardNumber" pattern="\d{4} \d{4} \d{4} \d{4}" placeholder="4441 **** **** ****" required>  
+                                <div class="label_bank">
+                                    <label class="online_check" for="bank">Какой у вас банк:</label>
+                                    <p>Выбирая подходящий банк, вы обеспечиваете себе удобные и безопасные платежи без лишних сложностей. </p>
+                                </div>
+
+                                <input style="position: relative; top: 50px;" type="text" id="bank" placeholder="ПриватБанк">
+
+
+                                <div class="btn_confirm">
+                                    <button style="top: 330px;">Сохранить изменения</button>
+                                </div>
+                                    
+
+                                <section class="continue-btn_PI">
+                                    <div class="btn_pi">
+                                        <button>Продолжить</button>
+                                    </div>
+                                </section>
+        
+                                <script>
+                                    function validateInput(input, regex, minLength, maxLength, checkIcon, crossIcon) {
+                                        let value = input.value.trim();
+                                        if (value.length >= minLength && value.length <= maxLength && regex.test(value)) {
+                                            input.style.borderColor = 'green';
+                                            input.style.outlineColor = 'green';
+                                            checkIcon.style.display = 'inline';
+                                            crossIcon.style.display = 'none';
+                                        } else {
+                                            input.style.borderColor = 'red';
+                                            input.style.outlineColor = 'red';
+                                            checkIcon.style.display = 'none';
+                                            crossIcon.style.display = 'inline';
+                                        }
+                                    }
+                                
+                                    // Имя
+                                    const nameInput = document.getElementById('name');
+                                    const nameCheck = document.getElementById('name-check');
+                                    const nameCross = document.getElementById('name-cross');
+                                
+                                    nameInput.addEventListener('input', function() {
+                                        validateInput(nameInput, /^[A-Za-zА-Яа-яЁё\s\-]+$/, 2, 50, nameCheck, nameCross);
+                                    });
+                                
+                                    nameInput.addEventListener('focus', function() {
+                                        nameInput.style.outlineColor = nameInput.style.borderColor;
+                                    });
+                                
+                                    // Email
+                                    const emailInput = document.getElementById('email');
+                                    const emailCheck = document.getElementById('email-check');
+                                    const emailCross = document.getElementById('email-cross');
+                                
+                                    emailInput.addEventListener('input', function() {
+                                        let emailValue = emailInput.value.trim();
+                                        let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Проверяем наличие "@" и "."
+                                        
+                                        if (emailValue.includes('@') && emailValue.includes('.') && emailRegex.test(emailValue)) {
+                                            emailInput.style.borderColor = 'green';
+                                            emailInput.style.outlineColor = 'green';
+                                            emailCheck.style.display = 'inline';
+                                            emailCross.style.display = 'none';
+                                        } else {
+                                            emailInput.style.borderColor = 'red';
+                                            emailInput.style.outlineColor = 'red';
+                                            emailCheck.style.display = 'none';
+                                            emailCross.style.display = 'inline';
+                                        }
+                                    });
+                                
+                                    emailInput.addEventListener('focus', function() {
+                                        emailInput.style.outlineColor = emailInput.style.borderColor;
+                                    });
+                                
+                                    // IBAN
+                                    const ibanInput = document.getElementById('iban');
+                                    const ibanCheck = document.getElementById('iban-check');
+                                    const ibanCross = document.getElementById('iban-cross');
+                                
+                                    ibanInput.addEventListener('input', function(event) {
+                                        let value = event.target.value.replace(/\s/g, '').toUpperCase();
+                                        if (value.length <= 34) {
+                                            event.target.value = value.replace(/(.{4})(?=\S)/g, '$1 ');
+                                        }
+                                
+                                        validateInput(ibanInput, /^[A-Z0-9]{15,34}$/, 15, 34, ibanCheck, ibanCross);
+                                    });
+                                
+                                    ibanInput.addEventListener('focus', function() {
+                                        ibanInput.style.outlineColor = ibanInput.style.borderColor;
+                                    });
+                                
+                                    // Номер карты
+                                    const cardInput = document.getElementById('cardNumber');
+                                    const cardCheck = document.getElementById('card-check');
+                                    const cardCross = document.getElementById('card-cross');
+                                
+                                    cardInput.addEventListener('input', function(event) {
+                                        let value = event.target.value.replace(/\D/g, '');
+                                        if (value.length <= 16) {
+                                            event.target.value = value.replace(/(.{4})(?=\d)/g, '$1 ');
+                                        }
+                                
+                                        validateInput(cardInput, /^\d{16}$/, 16, 16, cardCheck, cardCross);
+                                    });
+                                
+                                    cardInput.addEventListener('focus', function() {
+                                        cardInput.style.outlineColor = cardInput.style.borderColor;
+                                    });
+                                </script>
+                            
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="info_or_company">
+                <hr class="hr_detailed">
+                <p>Пожалуйста, проверьте всю информацию перед отправкой. Также не упустите возможность подключить <a href="#">ModerExpert</a> и получать дополнительные преимущества. Мы заботимся о вашей безопасности, поэтому обязательно ознакомьтесь с нашей <a href="#">Политикой конфиденциальности</a> и <a href="#">Условиями использования</a>. Если у вас возникнут вопросы, не стесняйтесь обращаться!</p>
+                <hr style="top: 50px;" class="hr_detailed">
+            </div>
+        </div>
+    </section>
+
+    <footer style="margin-top: 75px;" class="footer">
+    
+        <div style="position: relative; top: -36px;" class="for_clients_footer">
+            <h2>Для клиентов</h2>
+            <a href="#">Что такое ModerWeb</a>
+            <a href="#">Каталог проектов</a>
+            <a href="#">Опубликовать проект</a>
+            <a href="#">О ModerWeb</a>
+            <a href="#">Доверие и безопасность</a>
+            <a href="#">Как это работает</a>
+            <a href="#">Отзывы и рейтинги</a>
+            <a href="#">Цены и комиссии</a>
+            <a href="#">FAQ для клиентов</a>
+        </div>
+
+        <div style="margin-left: 100px; position: relative; top: -155px;" class="for_clients_footer">
+            <h2>Для фрилансеров</h2>
+            <a href="#">Станьте фрилансером</a>
+            <a href="#">Как найти работу</a>
+            <a href="#">Офлайн робота</a>
+            <a href="#">ModerPro</a>
+            <a href="#">Стартовый бонус</a>
+            <a href="#">FAQ для фрилансеров</a>
+        </div>
+
+        <div style="margin-left: 100px;" class="for_clients_footer">
+            <h2>Категории</h2>
+            <a href="page.categoris/grafik.html">Графика & дизайн</a>
+            <a href="#">Видео & анимация</a>
+            <a href="#">Написание & перевод</a>
+            <a href="#">Музыка & видео</a>
+            <a href="#">Кодинг & технологии</a>
+            <a href="#">Услуги ИИ</a>
+            <a href="#">Цифровой Маркетинг</a>
+            <a href="#">Инженерия & архитектура</a>
+            <a href="#">Бизнес</a>
+            <a href="#">Смотреть больше...</a>
+        </div>
+
+        <div style="float: right;" class="for_clients_footer">
+            <h2>Компания</h2>
+            <a href="#">О ModerWeb</a>
+            <a href="#">Карьера</a>
+            <a href="#">Пресса и новости</a>
+            <a href="#">Партнёрство</a>
+            <a href="#">Контакты</a>
+            <a href="#">Политика конфиденциальности</a>
+            <a href="#">Условия использования</a>
+            <a href="#">Юридическая информация</a>
+        </div>
+
+        <div style="float: right; margin-right: 100px;" class="for_clients_footer">
+            <h2>Ресурсы</h2>
+            <a href="#">Помощь и поддержка</a>
+            <a href="#">Реферальная программа</a>
+            <a href="#">Руководства</a>
+            <a href="#">Безопасность</a>
+            <a href="#">Обучающие материалы</a>
+            <a href="#">API и разработчикам</a>
+            <a href="#">Новости и обновления</a>
+        </div>
+
+                <hr class="hr_footer">
+                <h1>Moder<strong class="cl">Web</strong></h1>
+                    <div class="footer_down">
+                        <p>© ModerWeb Digital Ltd. 2025</p>
+                        <div class="social">
+                            <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+                            <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                            <a href="#"><i class="fa-brands fa-telegram"></i></a>
+                            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                        </div>
+                    </div>
+    </footer>
+
+</body>
+</html>
